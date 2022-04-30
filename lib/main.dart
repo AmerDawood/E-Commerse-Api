@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/contact_screen',
+      initialRoute: '/spalsh_screen',
       debugShowCheckedModeBanner: false,
       routes: {
         '/app_screen':(context)=>AppScreen(),

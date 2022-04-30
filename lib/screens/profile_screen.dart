@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:softagi_api/controller/api/profile_api_controller.dart';
+import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/app_screen.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
@@ -13,6 +16,15 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
+  late Future<UserData> _future;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _future =ProfileApiController().getUserData();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +43,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
         },),
      
       ),
-            body: Padding(
+
+            body:  FutureBuilder<UserData>(
+                future: _future,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Align(
+                      alignment: AlignmentDirectional.topStart,
+                      child: Column(
+                        
+                    
+                       
+                        children: 
+                        [
+
+                         
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
               child: Column(
         children: [
@@ -43,13 +70,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
              Container(
                decoration: BoxDecoration(
                  boxShadow: [
-                BoxShadow(color: Colors.blue.withOpacity(0.1), blurRadius: 15),
+                 BoxShadow(color: Colors.blue.withOpacity(0.2), blurRadius: 15),
+                
                  ],
+                 border: Border.all(color: Colors.blue.withOpacity(0.1),),
+                 borderRadius: BorderRadius.circular(60),
                ),
                child: CircleAvatar(
                  backgroundColor: Colors.blue,
+                 
                  radius: 50,
-                //  backgroundImage:NetworkImage(UserPreferenceController().image),
+                 backgroundImage:NetworkImage(snapshot.data!.image.toString()),
                  child: Container(
                    
                  ),
@@ -64,19 +95,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
          SizedBox(height: 15,),
        Column(
          children: [
-        ListTileProfileWidget(icon: Icon(Icons.person,color: Colors.blue,),text:UserPreferenceController().name),
+        ListTileProfileWidget(icon: Icon(Icons.person,color: Colors.blue,),text:snapshot.data!.name.toString()),
          SizedBox(height: 15,),
-        ListTileProfileWidget(icon: Icon(Icons.email,color: Colors.blue,),text:UserPreferenceController().email),
+        ListTileProfileWidget(icon: Icon(Icons.email,color: Colors.blue,),text:snapshot.data!.email.toString()),
          SizedBox(height: 15,),  
-        ListTileProfileWidget(icon: Icon(Icons.phone,color: Colors.blue,),text:UserPreferenceController().phone),
-  SizedBox(height: 15,),  
-   ListTileProfileWidget(icon: Icon(Icons.lock,color: Colors.blue,),text:UserPreferenceController().phone),
+        ListTileProfileWidget(icon: Icon(Icons.phone,color: Colors.blue,),text:snapshot.data!.phone.toString()),
   SizedBox(height: 15,), 
          Row(
            children: [
              Expanded(
                flex: 4,
-               child: ListTileProfileWidget(icon: Icon(Icons.token,color: Colors.blue,),text:UserPreferenceController().token)),
+               child: ListTileProfileWidget(icon: Icon(Icons.token,color: Colors.blue,),text:snapshot.data!.token.toString())),
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Expanded(
@@ -104,6 +133,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
       ),
             ),
+   
+                        ],
+                      ),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Text('${snapshot.error}');
+                  }
+                  return Center(child: const SpinKitRotatingCircle(
+                            color: Colors.blue,
+                            size: 50.0,
+                          ),);
+                },
+              ),
+
+           
     );
   }
 }

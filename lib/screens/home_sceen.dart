@@ -3,7 +3,9 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:softagi_api/controller/api/category_api_controller.dart';
 import 'package:softagi_api/controller/api/product_api_controller.dart';
+import 'package:softagi_api/controller/api/profile_api_controller.dart';
 import 'package:softagi_api/model/category_model.dart';
+import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/model/users_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/orders_screen.dart';
@@ -29,12 +31,16 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
   List<Product> _product = <Product>[];
   late Future<List<Product>> _future1;
 
+
+  late Future<UserData> _future2;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _future = CategoryAPIControllers().getCategories();
     _future1 = ProductApiController().getProducts();
+    _future2 =ProfileApiController().getUserData();
   }
 
   @override

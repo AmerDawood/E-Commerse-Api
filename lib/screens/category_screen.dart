@@ -25,17 +25,24 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+        backgroundColor: Colors.grey.shade100,
     appBar: AppBar(
-      backgroundColor: Colors.grey.shade300,
-      elevation: 0,
-      leading: IconButton(
-        icon: Icon(Icons.arrow_back,color: Colors.black,),
-        onPressed: (){
-          Navigator.pushNamed(context, '/app_screen');
-        },
+        backgroundColor: Colors.grey.shade100,
+        elevation: 0,
+        title: Text(
+          'Category',
+          style: TextStyle(color: Colors.black, fontSize: 25),
+        ),
+        centerTitle: true,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/app_screen');
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            )),
       ),
-    ),
       body: ListView(
         children: [
           SizedBox(

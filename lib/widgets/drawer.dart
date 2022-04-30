@@ -1,7 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:softagi_api/controller/api/profile_api_controller.dart';
+import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/faqs_screen.dart';
 import 'package:softagi_api/screens/profile_screen.dart';
@@ -21,6 +24,17 @@ class MyDrawer extends StatefulWidget {
 
 class _MyDrawerState extends State<MyDrawer> with Helpers {
    bool _notificationsState =false;
+
+   late Future<UserData> _future;
+
+
+   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _future = ProfileApiController().getUserData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -37,54 +51,93 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
                   },
                   icon:SvgPicture.asset('images/menu2.svg'),
                   )),
+
+
+                   FutureBuilder<UserData>(
+                future: _future,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Align(
+                      alignment: AlignmentDirectional.topStart,
+                      child: Column(
+                        
+                    
+                       
+                        children: 
+                           [
           Container(
             child: ListTile(
               leading: CircleAvatar(
                 radius: 30,
-                // child: Image.network(
-                //   '${UserPreferenceController().image}',
-                // ),
-                backgroundColor: Colors.white,
+                
+                child:    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                        BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 15),
+                       
+                        ],
+                        border: Border.all(color: Colors.black.withOpacity(0.1),),
+                        borderRadius: BorderRadius.circular(60),
+                      ),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey.shade200,
+                        
+                        radius: 50,
+                        backgroundImage:NetworkImage(snapshot.data!.image.toString()),
+                        child: Container(
+                          
+                        ),
+                        
+                      ),
+                    ),
               ),
               title: Text(
-                '${UserPreferenceController().name}',
+               snapshot.data!.name.toString(),
                 style: TextStyle(
                   fontSize: 20,
                   color: Color.fromRGBO(54, 89, 106, 1),
                 ),
               ),
-              subtitle: Row(
-                children: [
-                  Text(
-                    'Active : ',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    '${UserPreferenceController().loggedIn}'.toUpperCase(),
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.green,
-                    ),
-                  ),
-                ],
+              subtitle: Text(
+                'ID: ${snapshot.data!.id.toString()}',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.green,
+                ),
               ),
               trailing: ElevatedButton(
                 onPressed: (){},
-                child: Text('${UserPreferenceController().points} Orders'),
+                child: Text('${snapshot.data!.points.toString()} points'),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue.withOpacity(0.1),
                 ),
               ),
             ),
           ),
+         
+         
+                        ],
+                      ),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Text('${snapshot.error}');
+                  }
+                  return const SpinKitRotatingCircle(
+                            color: Colors.blue,
+                            size: 50.0,
+                          );
+                },
+              ),
+
+
+
+         
           Column(
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 5, top: 20),
                 child: Column(
+                  
                   children: [
                     
                      ListTile(
@@ -142,9 +195,9 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
                     
                     child: CardInDrawer(iconUrl: 'images/Logout.svg',name: 'Logout',)),
 
-
+                      SizedBox(height: 35,),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15,right: 15,top: 52),
+                      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
                       child: Row(
                         children: 
                         [
@@ -158,7 +211,7 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
                           child: 
                           Text('Click Here'),
                           ),
-
+                      
                         ],
                       ),
                     ),
