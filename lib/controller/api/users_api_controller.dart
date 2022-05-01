@@ -43,11 +43,13 @@ class UserAPIController with Helpers {
   }
 
   Future<bool> register(
-      {required BuildContext context,
+      {
+        required BuildContext context,
       required String name,
       required String email,
       required String password,
-      required String phone}) async {
+      required String phone
+      }) async {
     var url = Uri.parse(ApiSettings.REGISTER);
     var response = await http.post(url, body: {
       'name': name,

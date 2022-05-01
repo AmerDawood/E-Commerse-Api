@@ -11,5 +11,7 @@ class ApiSettings{
   static const SETTINGS = _API_URL+'settings';
   static const COMPLAINTS = _API_URL+'complaints';
   static const CONTACTS = _API_URL+'contacts';
+  static const updateProfile = _API_URL+'update-profile';
+
 
 }

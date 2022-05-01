@@ -5,6 +5,7 @@ import 'package:softagi_api/controller/api/profile_api_controller.dart';
 import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/app_screen.dart';
+import 'package:softagi_api/screens/update_profile.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
 import '../widgets/listtile_profile_screen.dart';
@@ -127,6 +128,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         
            ],
          ),
+         ElevatedButton(onPressed: (){
+           Navigator.push(context, MaterialPageRoute(builder: (context) {
+             return UpdateProfile();
+           },));
+         }, child:Text('Update Profile'))
          
          ],
        ),  
