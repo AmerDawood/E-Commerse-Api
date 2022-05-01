@@ -9,66 +9,55 @@ import 'package:softagi_api/utils/helpers.dart';
 
 import '../../model/profile_model.dart';
 
-
-
-class ProfileApiController with Helpers{
-
-   Future<UserData> getUserData()async{
-
+class ProfileApiController with Helpers {
+  Future<UserData> getUserData() async {
     var url = Uri.parse(ApiSettings.PROFILE);
 
-    var response =await http.get(url,
-    headers: {
-      HttpHeaders.authorizationHeader:UserPreferenceController().token,
-      HttpHeaders.acceptHeader:'application/json',
-    },
-    
+    var response = await http.get(
+      url,
+      headers: {
+        HttpHeaders.authorizationHeader: UserPreferenceController().token,
+        HttpHeaders.acceptHeader: 'application/json',
+      },
     );
-    
-    var decoded =json.decode(response.body);
+
+    var decoded = json.decode(response.body);
     // print(decoded['message']);
-      
+
     // return UserData.fromJson(decoded);
 
-    if(response.statusCode==200){
-      var jsonResponse =jsonDecode(response.body);
+    if (response.statusCode == 200) {
+      var jsonResponse = jsonDecode(response.body);
       // print(decoded['data']);
       return UserData.fromJson(decoded['data']);
-    }else{
+    } else {
       //
     }
     return decoded['message'];
+  }
 
-   }
-
-   Future<bool> updateProfile(
-
-     {
-    required BuildContext context , String? name , String? phone,String? email,String? image,String?password
-     }
-   )async{
-
+  Future<bool> updateProfile(
+      {required BuildContext context,
+      String? name,
+      String? phone,
+      String? email,
+      String? image,
+      String? password}) async {
     var url = Uri.parse(ApiSettings.updateProfile);
 
-    var response =await http.put(url,
-
-    headers: {
-      HttpHeaders.authorizationHeader:UserPreferenceController().token,
-      HttpHeaders.acceptHeader:'application/json',
-    },
-    body: {
-
-      'name':name,
-      'phone':phone,
-      'password':password,
-      'email':email,
-      'image':image,
-
-
+    var response = await http.put(url, headers: {
+      HttpHeaders.authorizationHeader: UserPreferenceController().token,
+      HttpHeaders.acceptHeader: 'application/json',
+    }, body: {
+      'name': name,
+      'phone': phone,
+      'password': password,
+      'email': email,
+      'image': image,
     });
-     if (response.statusCode == 200) {
+    if (response.statusCode == 200) {
       var jsonResponse = jsonDecode(response.body);
-      if (jsonResponse ==true) {
+      if (jsonResponse == true) {
         showSnackBar(
           context: context,
           message: jsonDecode(response.body)['message'],
@@ -86,16 +75,5 @@ class ProfileApiController with Helpers{
     }
 
     return false;
-
-   }
-
-
-
-   
-
-
-
+  }
 }
-
-
-

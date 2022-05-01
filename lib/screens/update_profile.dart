@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:softagi_api/controller/api/profile_api_controller.dart';
 import 'package:softagi_api/utils/helpers.dart';
@@ -69,13 +70,13 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
                 height: 10,
               ),
               CustomText(
-                text: 'Add Your Complaints',
+                text: 'Update Your Profile',
                 fontSize: 30,
                 fontWeight: FontWeight.w600,
                 color: Colors.black,
               ),
               CustomText(
-                text: 'please enter requierd data ...',
+                text: 'please enter required data ...',
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
                 color: Colors.black,
@@ -112,9 +113,11 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
                 textEditingController: imageEditingController,
               ),
               SizedBox(height: 10),
-              
+
               ElevatedButton(
-                onPressed: () async => await performUpdate(),
+                onPressed: () async {
+                  await performUpdate();
+                },
                 style: ElevatedButton.styleFrom(
                   primary: Color.fromARGB(255, 53, 88, 139),
                   fixedSize: Size(400, 60),
@@ -123,7 +126,7 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
                   ),
                   shadowColor: Color.fromARGB(255, 61, 83, 156),
                 ),
-                child: Text(
+                child:const Text(
                   'Update Profile',
                   style: TextStyle(
                     fontSize: 24,
@@ -148,17 +151,6 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
     await updateProfile();
   //  } 
   }
-
-  // bool checkData() {
-  //   if (nameEditingController.text.isNotEmpty &&
-  //       emailEditingController.text.isNotEmpty &&
-  //       passwordEditingController.text.isNotEmpty &&
-  //       phoneEditingController.text.isNotEmpty) {
-  //         return true;
-  //       }else{
-  //         return false;
-  //       }
-  // }
 
   Future<void> updateProfile() async {
     bool status = await ProfileApiController().updateProfile(

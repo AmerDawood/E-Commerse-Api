@@ -8,6 +8,7 @@ import 'package:softagi_api/screens/app_screen.dart';
 import 'package:softagi_api/screens/update_profile.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
+import '../utils/helpers.dart';
 import '../widgets/listtile_profile_screen.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({ Key? key }) : super(key: key);
@@ -16,7 +17,7 @@ class ProfileScreen extends StatefulWidget {
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileScreenState extends State<ProfileScreen> with Helpers {
 
   late Future<UserData> _future;
 
@@ -96,44 +97,71 @@ class _ProfileScreenState extends State<ProfileScreen> {
          SizedBox(height: 15,),
        Column(
          children: [
-        ListTileProfileWidget(icon: Icon(Icons.person,color: Colors.blue,),text:snapshot.data!.name.toString()),
+           Row(
+             children: [
+               Spacer(),
+
+               ElevatedButton(
+                 onPressed: (){
+                 Navigator.push(context, MaterialPageRoute(builder: (context) {
+                   return UpdateProfile();
+                 },));
+               },
+                 style: ElevatedButton.styleFrom(
+                   primary: Colors.blue.shade400,
+                 ),
+                 child:Text('Update Profile'),),
+
+             ],
+           ),
+           SizedBox(height: 5,),
+
+           ListTileProfileWidget(icon: Icon(Icons.person,color: Colors.blue,),text:snapshot.data!.name.toString()),
          SizedBox(height: 15,),
         ListTileProfileWidget(icon: Icon(Icons.email,color: Colors.blue,),text:snapshot.data!.email.toString()),
          SizedBox(height: 15,),  
         ListTileProfileWidget(icon: Icon(Icons.phone,color: Colors.blue,),text:snapshot.data!.phone.toString()),
-  SizedBox(height: 15,), 
-         Row(
-           children: [
-             Expanded(
-               flex: 4,
-               child: ListTileProfileWidget(icon: Icon(Icons.token,color: Colors.blue,),text:snapshot.data!.token.toString())),
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: Expanded(
-                child: ElevatedButton(
-                  
-          onPressed: (){
-          final data = ClipboardData(text: 'test');
-          Clipboard.setData(data);
-        },
-        style: ElevatedButton.styleFrom(
-          primary: Colors.white,
-          shadowColor: Colors.blue,
-        ),
-        
-         child:Icon(Icons.copy,color: Colors.blue,),
-         ),
-              ),
-            ),
-        
-           ],
-         ),
-         ElevatedButton(onPressed: (){
-           Navigator.push(context, MaterialPageRoute(builder: (context) {
-             return UpdateProfile();
-           },));
-         }, child:Text('Update Profile'))
-         
+  SizedBox(height: 15,),
+           Container(
+             decoration: BoxDecoration(
+                 color: Colors.white,
+                 borderRadius: BorderRadius.circular(15),
+                 boxShadow: [
+                   BoxShadow(color: Colors.blue.withOpacity(0.2), blurRadius: 15),
+                 ]
+             ),
+             child: ListTile(
+               leading: Icon(Icons.token,color: Colors.blue,),
+               tileColor: Colors.black.withOpacity(0.5),
+               shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(15),
+                 side: const BorderSide(
+                   color: Colors.black,
+                 ),
+               ),
+               title:Text(
+                 snapshot.data!.token.toString(),
+                 maxLines: 1,
+                 style: TextStyle(
+                   fontSize: 20,
+                   color: Colors.blueAccent,
+                 ),
+               ),
+               trailing: IconButton(
+                 onPressed: (){
+                     final data = ClipboardData(text: 'test');
+                     Clipboard.setData(data);
+                     showSnackBar(context: context, message: 'Token Copied Successfully',error: false);
+                 },
+                 icon: Icon(Icons.copy,color:Colors.blue),
+               ),
+               contentPadding:
+               const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+             ),
+           ),
+           SizedBox(height: 15,),
+
+
          ],
        ),  
         ],
