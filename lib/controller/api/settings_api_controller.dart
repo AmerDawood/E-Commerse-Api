@@ -10,7 +10,7 @@ class SettingsApiController{
   Future<Settings> getSettings()async{
    var url =Uri.parse(ApiSettings.SETTINGS);
    var response =await http.get(url);
-       print(response.body);
+      //  print(response.body);
 
        var decoded = json.decode(response.body);
        return Settings.fromJson(decoded['data']);

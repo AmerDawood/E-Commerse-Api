@@ -64,8 +64,6 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
             ),
           ),
         ],
-      
-
          leading: Builder(
           builder: (context) {
             return IconButton(onPressed: (){
@@ -85,11 +83,27 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
               children: [
                 Align(
                   alignment: AlignmentDirectional.topStart,
-                  child: CustomText(
-                    text: 'Hi, ${UserPreferenceController().name}',
+                  child:FutureBuilder<UserData>(
+                    future: _future2,
+                    builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: Text(''),
+                  );
+                } else if (snapshot.hasData ) {
+                  return CustomText(
+                    text: 'Hi,  ${snapshot.data!.name.toString()}',
                     fontSize: 31,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
+                  );
+                 
+                } else {
+                  return Text('');
+                }
+              },
+           
+                    
                   ),
                 ),
                 CustomText(

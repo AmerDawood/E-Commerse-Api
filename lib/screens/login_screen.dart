@@ -116,7 +116,7 @@ class _SignInState extends State<LoginScreen> with Helpers {
               Center(
                 child: GestureDetector(
                   onTap: (){
-                    Navigator.pushNamed(context, '/');
+                    Navigator.pushNamed(context, '/send_code');
                   },
                   child: CustomText(
                     text: 'Forget Password ?',

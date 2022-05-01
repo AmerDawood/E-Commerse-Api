@@ -10,6 +10,7 @@ import 'package:softagi_api/screens/login_screen.dart';
 import 'package:softagi_api/screens/products_screen.dart';
 import 'package:softagi_api/screens/profile_screen.dart';
 import 'package:softagi_api/screens/register_screen.dart';
+import 'package:softagi_api/screens/send_code_screen.dart';
 import 'package:softagi_api/screens/splash_screen.dart';
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
        '/products_screen':(context)=>ProductsScreen(),
        '/faqs_screen':(context)=>FaqsScreen(),
        '/contact_screen':(context)=>ContactScreen(),
+       '/send_code':(context)=>SendCodeScreen(),
       },
     );
   }

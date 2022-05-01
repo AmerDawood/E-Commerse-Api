@@ -103,6 +103,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             height: 600,
             child: FutureBuilder<List<Category>>(
               future: _future,
+
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
@@ -192,6 +193,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   );
                 }
               },
+           
             ),
           ),
         ],

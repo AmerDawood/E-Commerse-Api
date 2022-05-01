@@ -48,6 +48,8 @@ class _SignInState extends State<ResetPasswordScreen> with Helpers {
       backgroundColor: Color.fromRGBO(254, 250, 247, 1),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),

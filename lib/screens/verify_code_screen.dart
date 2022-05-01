@@ -49,6 +49,7 @@ class _SignInState extends State<VerifyCodeScreen> with Helpers {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 26),
@@ -86,16 +87,14 @@ class _SignInState extends State<VerifyCodeScreen> with Helpers {
               ),
 
 
-              SizedBox(height: 10),
-              CustomTextField(
-                text: 'Email',
-                textEditingController: emailTextController,
-              ),
+            
               SizedBox(height: 10),
               CustomTextField(
                 text: 'Code',
                 textEditingController: codeEditingController,
               ),
+              SizedBox(height: 10),
+
               ElevatedButton(
                 onPressed: () async => await performVerifyCode(),
                 style: ElevatedButton.styleFrom(

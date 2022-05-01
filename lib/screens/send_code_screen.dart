@@ -44,8 +44,12 @@ class _SignInState extends State<SendCodeScreen> with Helpers {
       backgroundColor: Color.fromRGBO(254, 250, 247, 1),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         backgroundColor: Colors.transparent,
+        leading: IconButton(icon: Icon(Icons.arrow_back,) ,onPressed: (){
+          Navigator.pushReplacementNamed(context, '/login_screen');
+        },),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 26),

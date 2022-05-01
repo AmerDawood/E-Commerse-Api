@@ -110,12 +110,14 @@ class UserAPIController with Helpers {
         showSnackBar(
           context: context,
           message: jsonDecode(response.body)['message'],
+          error: false,
         );
         return true;
       } else {
         showSnackBar(
           context: context,
           message: jsonDecode(response.body)['message'],
+          error: true,
         );
         return false;
       }
@@ -139,12 +141,14 @@ class UserAPIController with Helpers {
         showSnackBar(
           context: context,
           message: jsonDecode(response.body)['message'],
+          error: false
         );
         return true;
       } else {
         showSnackBar(
           context: context,
           message: jsonDecode(response.body)['message'],
+          error: true,
         );
         return false;
       }
@@ -169,12 +173,14 @@ class UserAPIController with Helpers {
         showSnackBar(
           context: context,
           message: jsonDecode(response.body)['message'],
+          error: false,
         );
         return true;
       } else {
         showSnackBar(
           context: context,
           message: jsonDecode(response.body)['message'],
+          error: true,
         );
         return false;
       }
