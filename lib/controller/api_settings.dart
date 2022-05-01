@@ -18,6 +18,10 @@ class ApiSettings{
   //to verify code
   static const verifyCode = _API_URL+'verify-code';
   static const resetPassword = _API_URL+'reset-password';
+  static const BANNERS = _API_URL+'banners';
+  static const NOTIFICATIONS = _API_URL+'notifications';
+
+
 
 
 }
