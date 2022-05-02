@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 class NotificationApiController{
 
 
-   Future<List> getCategories()async{
+   Future<List<Notifications>> getNotifications()async{
     var url =Uri.parse(ApiSettings.NOTIFICATIONS);
     var response = await http.get(url);
     var decoded = json.decode(response.body);

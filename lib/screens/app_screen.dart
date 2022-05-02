@@ -4,7 +4,6 @@ import 'package:softagi_api/screens/category_screen.dart';
 import 'package:softagi_api/screens/faviorate_screen.dart';
 import 'package:softagi_api/screens/home_sceen.dart';
 import 'package:softagi_api/screens/orders_screen.dart';
-import 'package:softagi_api/screens/products_screen.dart';
 import 'package:softagi_api/screens/profile_screen.dart';
 import '../model/bn_screen.dart';
 import 'card_screen.dart';

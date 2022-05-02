@@ -21,6 +21,9 @@ class ApiSettings{
   static const BANNERS = _API_URL+'banners';
   static const NOTIFICATIONS = _API_URL+'notifications';
 
+   static const productsSearch = _API_URL+'products/search';
+
+
 
 
 

@@ -7,11 +7,11 @@ import 'package:softagi_api/screens/contact_screen.dart';
 import 'package:softagi_api/screens/faqs_screen.dart';
 import 'package:softagi_api/screens/home_sceen.dart';
 import 'package:softagi_api/screens/login_screen.dart';
-import 'package:softagi_api/screens/products_screen.dart';
 import 'package:softagi_api/screens/profile_screen.dart';
 import 'package:softagi_api/screens/register_screen.dart';
 import 'package:softagi_api/screens/send_code_screen.dart';
 import 'package:softagi_api/screens/splash_screen.dart';
+import 'package:softagi_api/screens/product_screen.dart';
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();
   await UserPreferenceController().initSharedPreference();
@@ -24,11 +24,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/spalsh_screen',
+      initialRoute: '/splash_screen',
       debugShowCheckedModeBanner: false,
       routes: {
         '/app_screen':(context)=>AppScreen(),
-        '/spalsh_screen':(context)=>SplashScreen(),
+        '/splash_screen':(context)=>SplashScreen(),
        '/login_screen':(context) =>LoginScreen(),
        '/register_screen':(context) => RegisterScreen(),
        '/home_screen':(context)=>HomeScreen(),
