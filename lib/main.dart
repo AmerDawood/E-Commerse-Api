@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/app_screen.dart';
 import 'package:softagi_api/screens/category_screen.dart';
@@ -23,7 +24,11 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      title: 'getXpro',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       initialRoute: '/splash_screen',
       debugShowCheckedModeBanner: false,
       routes: {
@@ -49,3 +54,25 @@ class MyHttpOverrides extends HttpOverrides{
       ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
   }
 }
+
+
+
+/*
+MaterialApp(
+      initialRoute: '/splash_screen',
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/app_screen':(context)=>AppScreen(),
+        '/splash_screen':(context)=>SplashScreen(),
+       '/login_screen':(context) =>LoginScreen(),
+       '/register_screen':(context) => RegisterScreen(),
+       '/home_screen':(context)=>HomeScreen(),
+       '/profile_screen':(context)=>ProfileScreen(),
+       '/category_screen':(context)=>CategoryScreen(),
+       '/products_screen':(context)=>ProductsScreen(),
+       '/faqs_screen':(context)=>FaqsScreen(),
+       '/contact_screen':(context)=>ContactScreen(),
+       '/send_code':(context)=>SendCodeScreen(),
+      },
+    );
+*/
