@@ -54,25 +54,3 @@ class MyHttpOverrides extends HttpOverrides{
       ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
   }
 }
-
-
-
-/*
-MaterialApp(
-      initialRoute: '/splash_screen',
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/app_screen':(context)=>AppScreen(),
-        '/splash_screen':(context)=>SplashScreen(),
-       '/login_screen':(context) =>LoginScreen(),
-       '/register_screen':(context) => RegisterScreen(),
-       '/home_screen':(context)=>HomeScreen(),
-       '/profile_screen':(context)=>ProfileScreen(),
-       '/category_screen':(context)=>CategoryScreen(),
-       '/products_screen':(context)=>ProductsScreen(),
-       '/faqs_screen':(context)=>FaqsScreen(),
-       '/contact_screen':(context)=>ContactScreen(),
-       '/send_code':(context)=>SendCodeScreen(),
-      },
-    );
-*/

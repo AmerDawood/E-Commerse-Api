@@ -1,7 +1,7 @@
 class Product {
   int? id;
-  // int price =1??0;
-  // int? oldPrice;
+  dynamic ? price ;
+  dynamic ? oldPrice;
   int? discount;
   String? image;
   String? name;
@@ -11,8 +11,8 @@ class Product {
   bool? inCart;
   Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    // price = json['price'];
-    // oldPrice = json['old_price'];
+    price = json['price'];
+    oldPrice = json['old_price'];
     discount = json['discount'];
     image = json['image'];
     name = json['name'];
@@ -22,3 +22,5 @@ class Product {
     inCart = json['in_cart'];
   }
 }
+
+

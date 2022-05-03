@@ -52,7 +52,7 @@ class _AppScreenState extends State<AppScreen> {
         items: [
 BottomNavigationBarItem(
               label: '',
-              icon: SvgPicture.asset('images/Home.svg',color: Colors.grey,),
+              icon: SvgPicture.asset('images/Home.svg',color: Colors.grey,height: 30),
               activeIcon: SvgPicture.asset('images/Home.svg',color: Colors.blue,),
           ),
            BottomNavigationBarItem(

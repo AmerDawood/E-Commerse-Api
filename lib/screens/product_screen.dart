@@ -183,22 +183,24 @@ class JobsState extends State<ProductsScreen> {
                                         SizedBox(
                                           height: 5,
                                         ),
-                                        CustomText(
-                                            text: productList[index].name.toString(),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.black),
-                                        CustomText(
-                                            text:
-                                                'discount : ${productList[index].discount}\$',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.black),
-                                        CustomText(
-                                            text: 'Price',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.black),
+                                       CustomText(
+                                                text: productList[index]
+                                                    .name
+                                                    .toString(),
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.normal,
+                                                color: Colors.black),
+                                            CustomText(
+                                                text:
+                                                    'price : ${productList[index].price}\$',
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.normal,
+                                                color: Colors.green),
+                                            CustomText(
+                                                text: 'discount : ${productList[index].discount} %',
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.normal,
+                                                color: Colors.black),
                                       ],
                                     ),
                                   ),

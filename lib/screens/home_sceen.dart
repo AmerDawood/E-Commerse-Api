@@ -379,12 +379,12 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                                             // SizedBox(height: 10,),
                                             CustomText(
                                                 text:
-                                                    'discount : ${_product[index].discount}\$',
+                                                    'price : ${_product[index].price}\$',
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.normal,
-                                                color: Colors.black),
+                                                color: Colors.green),
                                             CustomText(
-                                                text: 'Price',
+                                                text: 'discount : ${_product[index].discount} %',
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.normal,
                                                 color: Colors.black),
