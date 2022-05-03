@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
 import 'package:softagi_api/utils/helpers.dart';
 
-import '../widgets/custom_text.dart';
-import '../widgets/custom_text_field.dart';
+import '../../widgets/custom_text.dart';
+import '../../widgets/custom_text_field.dart';
+
+
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);

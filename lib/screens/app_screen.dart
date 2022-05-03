@@ -19,9 +19,6 @@ class AppScreen extends StatefulWidget {
 
 class _AppScreenState extends State<AppScreen> {
 
-
-  
-
   late int _currentIndex = 0;
   final List<BnScreen> _bnScreen = <BnScreen>[
    BnScreen(widget: HomeScreen(), title: 'Category'),

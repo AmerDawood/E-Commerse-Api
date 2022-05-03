@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:softagi_api/model/product_model.dart';
+import 'package:softagi_api/widgets/custom_button.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
@@ -175,15 +176,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           
           ],
         ),
-       Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child:Container(
-                    width: double.infinity,
-                    height: 50,
-                    color: Color.fromARGB(255, 183, 150, 218),
-                  )),
+           CustomButton(text: 'name', function: (){}),
         ],
         
       ),

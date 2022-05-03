@@ -2,10 +2,11 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
-import 'package:softagi_api/screens/verify_code_screen.dart';
-import '../utils/helpers.dart';
-import '../widgets/custom_text.dart';
-import '../widgets/custom_text_field.dart';
+import 'package:softagi_api/screens/auth/verify_code_screen.dart';
+import '../../utils/helpers.dart';
+import '../../widgets/custom_text.dart';
+import '../../widgets/custom_text_field.dart';
+
 
 class SendCodeScreen extends StatefulWidget {
   const SendCodeScreen({Key? key}) : super(key: key);

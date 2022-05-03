@@ -2,43 +2,42 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
-import '../utils/helpers.dart';
-import '../widgets/custom_text.dart';
-import '../widgets/custom_text_field.dart';
+import '../../utils/helpers.dart';
+import '../../widgets/custom_text.dart';
+import '../../widgets/custom_text_field.dart';
 
-class ResetPasswordScreen extends StatefulWidget {
-  const ResetPasswordScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   _SignInState createState() => _SignInState();
 }
 
-class _SignInState extends State<ResetPasswordScreen> with Helpers {
+class _SignInState extends State<LoginScreen> with Helpers {
   late TextEditingController emailTextController;
-  late TextEditingController codeEditingController;
-  late TextEditingController passwordEditingController;
-
+  late TextEditingController passwordTextController;
+  late TapGestureRecognizer _tapGestureRecognizer;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     emailTextController = TextEditingController();
-    codeEditingController =TextEditingController();
-    passwordEditingController =TextEditingController();
-
+    passwordTextController = TextEditingController();
+    _tapGestureRecognizer = TapGestureRecognizer();
+    _tapGestureRecognizer.onTap = navigationToRegisterScreen;
   }
 
-  // void navigationToRegisterScreen() {
-  //   Navigator.pushNamed(context, '/register_screen');
-  // }
+  void navigationToRegisterScreen() {
+    Navigator.pushNamed(context, '/register_screen');
+  }
 
   @override
   void dispose() {
     // TODO: implement dispose
     emailTextController.dispose();
-    codeEditingController.dispose();
-    passwordEditingController.dispose();
+    passwordTextController.dispose();
+
     super.dispose();
   }
 
@@ -48,8 +47,6 @@ class _SignInState extends State<ResetPasswordScreen> with Helpers {
       backgroundColor: Color.fromRGBO(254, 250, 247, 1),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
@@ -69,13 +66,13 @@ class _SignInState extends State<ResetPasswordScreen> with Helpers {
                 height: 10,
               ),
               CustomText(
-                text: 'Reset Password ... ',
+                text: 'Login Screen ... ',
                 fontSize: 30,
                 fontWeight: FontWeight.w600,
                 color: Colors.black,
               ),
               CustomText(
-                text: 'enter required data please',
+                text: 'First login your account.',
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
                 color: Colors.black,
@@ -87,20 +84,51 @@ class _SignInState extends State<ResetPasswordScreen> with Helpers {
                 text: 'Email',
                 textEditingController: emailTextController,
               ),
-
-
-              SizedBox(height: 10),
-              CustomTextField(
-                text: 'Code',
-                textEditingController: codeEditingController,
+              SizedBox(
+                height: 15,
               ),
-              SizedBox(height: 10),
               CustomTextField(
                 text: 'Password',
-                textEditingController: passwordEditingController,
+                textEditingController: passwordTextController,
               ),
+              SizedBox(height: 10),
+              Center(
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Don\'t have an account ?',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                    ),
+                    children: <InlineSpan>[
+                      TextSpan(
+                        text: ' Register Now',
+                        recognizer: _tapGestureRecognizer,
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 53, 88, 139),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              Center(
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/send_code');
+                  },
+                  child: CustomText(
+                    text: 'Forget Password ?',
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal,
+                    color: Color.fromARGB(255, 53, 88, 139),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () async => await performResetPassword(),
+                onPressed: () async => await performLogin(),
                 style: ElevatedButton.styleFrom(
                   primary: Color.fromARGB(255, 53, 88, 139),
                   fixedSize: Size(400, 60),
@@ -127,32 +155,31 @@ class _SignInState extends State<ResetPasswordScreen> with Helpers {
     );
   }
 
-
-
-  Future<void> performResetPassword() async {
+  Future<void> performLogin() async {
     if (checkData()) {
-      await resetPassword();
+      await login();
     }
   }
 
   bool checkData() {
-    if (emailTextController.text.isNotEmpty && codeEditingController.text.isNotEmpty && passwordEditingController.text.isNotEmpty) {
+    if (emailTextController.text.isNotEmpty &&
+        passwordTextController.text.isNotEmpty) {
       return true;
     }
     return false;
   }
 
-  Future<void> resetPassword() async {
-    bool user = await UserAPIController().resetPassword(
+  Future<void> login() async {
+    bool user = await UserAPIController().login(
       email: emailTextController.text,
-      code: codeEditingController.text,
-      password: passwordEditingController.text,
+      password: passwordTextController.text,
       context: context,
     );
     if(user){
-      Navigator.pushReplacementNamed(context, '/login_screen');
-          }else{
-    }
+    Navigator.pushReplacementNamed(context, '/app_screen');
+  }else{
+    //
   }
-
+  }
+ 
 }

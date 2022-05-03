@@ -2,10 +2,11 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
-import 'package:softagi_api/screens/reset_password.dart';
-import '../utils/helpers.dart';
-import '../widgets/custom_text.dart';
-import '../widgets/custom_text_field.dart';
+import 'package:softagi_api/screens/auth/reset_password.dart';
+import '../../utils/helpers.dart';
+import '../../widgets/custom_text.dart';
+import '../../widgets/custom_text_field.dart';
+
 
 class VerifyCodeScreen extends StatefulWidget {
   const VerifyCodeScreen({Key? key}) : super(key: key);
