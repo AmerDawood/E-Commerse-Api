@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:softagi_api/screens/category_screen.dart';
 import 'package:softagi_api/screens/faviorate_screen.dart';
 import 'package:softagi_api/screens/home_sceen.dart';
@@ -29,7 +30,9 @@ class _AppScreenState extends State<AppScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
+      backgroundColor: context.theme.backgroundColor,
       
        bottomNavigationBar: BottomNavigationBar(
          
@@ -49,8 +52,8 @@ class _AppScreenState extends State<AppScreen> {
         items: [
 BottomNavigationBarItem(
               label: '',
-              icon: SvgPicture.asset('images/Home.svg',color: Colors.grey,height: 30),
-              activeIcon: SvgPicture.asset('images/Home.svg',color: Colors.blue,),
+              icon: SvgPicture.asset('images/Home.svg',color: Colors.grey,height: 15),
+              activeIcon: SvgPicture.asset('images/Home.svg',color: Colors.blue,height: 18,),
           ),
            BottomNavigationBarItem(
                label: '',

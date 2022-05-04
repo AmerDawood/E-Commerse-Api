@@ -9,6 +9,7 @@ import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/faqs_screen.dart';
 import 'package:softagi_api/screens/profile_screen.dart';
 import 'package:softagi_api/utils/helpers.dart';
+import 'package:softagi_api/widgets/switch_widget.dart';
 
 import '../screens/complaints_screen.dart';
 import '../screens/settings_screen.dart';
@@ -150,20 +151,12 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
             ),
             
                        ),
-                      //  trailing:SwitchListTile(
-                      //    title:Text('test'),
-                      //    subtitle: Text('kk'),
-                      //    value: _notificationsState,
-                      //    onChanged: (bool value){
-                      //      setState(() {
-                      //        _notificationsState=value;
-                      //      });
-                      //    },
-                      //  ),
-                      trailing: Icon(Icons.abc,),
+                       trailing:SizedBox(
+                         width: 10,
+                         height: 10,
+                         child: SwitchScreen()),
+                      // trailing: Icon(Icons.abc,),
                     ),
-
-       
                   InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder:(context) {

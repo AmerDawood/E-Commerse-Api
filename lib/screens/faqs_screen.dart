@@ -30,13 +30,9 @@ class _FaqsScreenState extends State<FaqsScreen> {
         title: Text('FAQS Questions',style: TextStyle(
           color: Colors.black,
           fontSize: 25,
-          fontWeight:FontWeight.w700,
+          fontWeight:FontWeight.w400,
            shadows: <Shadow>[
-      Shadow(
-        offset: Offset(3.0, 3.0),
-        blurRadius: 3.0,
-        color: Colors.blue.shade200,
-      ),
+   
     ],
         
         ),

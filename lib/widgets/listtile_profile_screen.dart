@@ -17,7 +17,8 @@ class ListTileProfileWidget extends StatelessWidget {
     borderRadius: BorderRadius.circular(15),
     boxShadow: [
       BoxShadow(color: Colors.blue.withOpacity(0.2), blurRadius: 15),
-    ]
+    ],
+    border: Border.all(color: Colors.grey.shade500),
   ),
   child: ListTile(
     leading: icon,

@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
+import 'package:softagi_api/widgets/custom_button.dart';
 import '../../utils/helpers.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
@@ -50,107 +51,109 @@ class _SignInState extends State<LoginScreen> with Helpers {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 26),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 50,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomText(
-                text: 'Login Screen ... ',
-                fontSize: 30,
-                fontWeight: FontWeight.w600,
-                color: Colors.black,
-              ),
-              CustomText(
-                text: 'First login your account.',
-                fontSize: 20,
-                fontWeight: FontWeight.normal,
-                color: Colors.black,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextField(
-                text: 'Email',
-                textEditingController: emailTextController,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              CustomTextField(
-                text: 'Password',
-                textEditingController: passwordTextController,
-              ),
-              SizedBox(height: 10),
-              Center(
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Don\'t have an account ?',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 17,
-                    ),
-                    children: <InlineSpan>[
-                      TextSpan(
-                        text: ' Register Now',
-                        recognizer: _tapGestureRecognizer,
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 53, 88, 139),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 10),
-              Center(
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.pushNamed(context, '/send_code');
-                  },
-                  child: CustomText(
-                    text: 'Forget Password ?',
-                    fontSize: 18,
-                    fontWeight: FontWeight.normal,
-                    color: Color.fromARGB(255, 53, 88, 139),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () async => await performLogin(),
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 53, 88, 139),
-                  fixedSize: Size(400, 60),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  shadowColor: Color.fromARGB(255, 61, 83, 156),
-                ),
-                child: Text(
-                  'Get Started',
+      body: Stack(
+        children: [
+          
+         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 50,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            CustomText(
+              text: 'Login Screen ... ',
+              fontSize: 30,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
+            CustomText(
+              text: 'First login your account.',
+              fontSize: 20,
+              fontWeight: FontWeight.normal,
+              color: Colors.black,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            CustomTextField(
+              text: 'Email',
+              textEditingController: emailTextController,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            CustomTextField(
+              text: 'Password',
+              textEditingController: passwordTextController,
+            ),
+            SizedBox(height: 10),
+            Center(
+              child: RichText(
+                text: TextSpan(
+                  text: 'Don\'t have an account ?',
                   style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
+                    color: Colors.black,
+                    fontSize: 17,
                   ),
+                  children: <InlineSpan>[
+                    TextSpan(
+                      text: ' Register Now',
+                      recognizer: _tapGestureRecognizer,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 53, 88, 139),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(
-                height: 20,
+            ),
+            SizedBox(height: 10),
+            Center(
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(context, '/send_code');
+                },
+                child: CustomText(
+                  text: 'Forget Password ?',
+                  fontSize: 18,
+                  fontWeight: FontWeight.normal,
+                  color: Color.fromARGB(255, 53, 88, 139),
+                ),
               ),
-            ],
-          ),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () async => await performLogin(),
+              style: ElevatedButton.styleFrom(
+                primary: Color.fromARGB(255, 53, 88, 139),
+                fixedSize: Size(400, 60),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                shadowColor: Color.fromARGB(255, 61, 83, 156),
+              ),
+              child: Text(
+                'Get Started',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+          ],
         ),
+        CustomButton(text: 'Login Now', function: ()async => await performLogin()),
+        ],
+        
       ),
     );
   }

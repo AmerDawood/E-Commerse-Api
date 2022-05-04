@@ -94,28 +94,33 @@ class _ProfileScreenState extends State<ProfileScreen> with Helpers {
 
          
        ),
-         SizedBox(height: 15,),
+        //  SizedBox(height: 15,),
        Column(
          children: [
-           Row(
-             children: [
-               Spacer(),
+          //  Row(
+          //    children: [
+          //      Spacer(),
 
-               ElevatedButton(
-                 onPressed: (){
-                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                   return UpdateProfile();
-                 },));
-               },
-                 style: ElevatedButton.styleFrom(
-                   primary: Colors.blue.shade400,
-                 ),
-                 child:Text('Update Profile'),),
+          //      ElevatedButton(
+          //        onPressed: (){
+          //        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          //          return UpdateProfile();
+          //        },));
+          //      },
+          //        style: ElevatedButton.styleFrom(
+          //          primary: Colors.blue.shade400,
+          //        ),
+          //        child:Text('Update Profile'),),
 
-             ],
-           ),
+          //    ],
+          //  ),
+          Center(child: TextButton(onPressed: (){
+
+            Navigator.push(context,MaterialPageRoute(builder: (context) {
+              return UpdateProfile();
+            },));
+          }, child: Text('Update Profile'))),
            SizedBox(height: 5,),
-
            ListTileProfileWidget(icon: Icon(Icons.person,color: Colors.blue,),text:snapshot.data!.name.toString()),
          SizedBox(height: 15,),
         ListTileProfileWidget(icon: Icon(Icons.email,color: Colors.blue,),text:snapshot.data!.email.toString()),
@@ -128,7 +133,9 @@ class _ProfileScreenState extends State<ProfileScreen> with Helpers {
                  borderRadius: BorderRadius.circular(15),
                  boxShadow: [
                    BoxShadow(color: Colors.blue.withOpacity(0.2), blurRadius: 15),
-                 ]
+                 ],
+    border: Border.all(color: Colors.grey.shade500),
+
              ),
              child: ListTile(
                leading: Icon(Icons.token,color: Colors.blue,),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:softagi_api/controller/api/category_api_controller.dart';
 import 'package:softagi_api/controller/api/product_api_controller.dart';
 import 'package:softagi_api/controller/api/profile_api_controller.dart';
@@ -46,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: context.theme.backgroundColor,
       drawer: MyDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.white,
