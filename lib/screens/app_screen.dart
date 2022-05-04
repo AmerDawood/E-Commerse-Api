@@ -44,7 +44,7 @@ class _AppScreenState extends State<AppScreen> {
         },
         currentIndex: _currentIndex,
         selectedItemColor: Colors.black,
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         // elevation: 0,
         selectedFontSize: 17,
         selectedIconTheme: IconThemeData(color: Colors.black),

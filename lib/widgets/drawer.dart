@@ -11,6 +11,7 @@ import 'package:softagi_api/screens/faqs_screen.dart';
 import 'package:softagi_api/screens/profile_screen.dart';
 import 'package:softagi_api/utils/helpers.dart';
 import 'package:softagi_api/widgets/switch_widget.dart';
+import 'package:softagi_api/widgets/theme_widget.dart';
 
 import '../screens/complaints_screen.dart';
 import '../screens/settings_screen.dart';
@@ -40,187 +41,193 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 30,
-          ),
-          Align(
-              alignment: AlignmentDirectional.topStart,
-              child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon:SvgPicture.asset('images/menu2.svg'),
-                  )),
+      child: Stack(
 
+         children :[
 
-                   FutureBuilder<UserData>(
-                future: _future,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return Align(
-                      alignment: AlignmentDirectional.topStart,
-                      child: Column(
-                        
-                    
-                       
-                        children: 
-                           [
-          Container(
-            child: ListTile(
-              leading: CircleAvatar(
-                radius: 30,
-                
-                child:    Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                        BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 15),
-                       
-                        ],
-                        border: Border.all(color: Colors.black.withOpacity(0.1),),
-                        borderRadius: BorderRadius.circular(60),
-                      ),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.grey.shade200,
-                        
-                        radius: 50,
-                        backgroundImage:NetworkImage(snapshot.data!.image.toString()),
-                        child: Container(
+         Column(
+          children: [
+            SizedBox(
+              height: 30,
+            ),
+            Align(
+                alignment: AlignmentDirectional.topStart,
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon:SvgPicture.asset('images/menu2.svg',color: Colors.red,),
+                    )),
+      
+      
+                     FutureBuilder<UserData>(
+                  future: _future,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Align(
+                        alignment: AlignmentDirectional.topStart,
+                        child: Column(
+                          
+                      
+                         
+                          children: 
+                             [
+            Container(
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 30,
+                  
+                  child:    Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                          BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 15),
+                         
+                          ],
+                          border: Border.all(color: Colors.black.withOpacity(0.1),),
+                          borderRadius: BorderRadius.circular(60),
+                        ),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.grey.shade200,
+                          
+                          radius: 50,
+                          backgroundImage:NetworkImage(snapshot.data!.image.toString()),
+                          child: Container(
+                            
+                          ),
                           
                         ),
-                        
                       ),
-                    ),
-              ),
-              title: Text(
-               snapshot.data!.name.toString(),
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Color.fromRGBO(54, 89, 106, 1),
                 ),
-              ),
-              subtitle: Text(
-                'ID: ${snapshot.data!.id.toString()}',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.green,
-                ),
-              ),
-              trailing: ElevatedButton(
-                onPressed: (){},
-                child: Text('${snapshot.data!.points.toString()} points'),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue.withOpacity(0.1),
-                ),
-              ),
-            ),
-          ),
-         
-         
-                        ],
-                      ),
-                    );
-                  } else if (snapshot.hasError) {
-                    return Text('${snapshot.error}');
-                  }
-                  return const SpinKitRotatingCircle(
-                            color: Colors.blue,
-                            size: 50.0,
-                          );
-                },
-              ),
-
-
-
-         
-          Column(
-            children: [
-              Column(
-                
-                children: [
-                  
-                   ListTile(
-                    leading: IconButton(icon: SvgPicture.asset('images/sun.svg'),onPressed: (){},),
-                     title: Text('Dark Mood',
-                       style: TextStyle(
-              fontSize: 18,
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-            ),
-            
-            
-                     ),
-                     
-                     trailing:IconButton(
-                       icon: Icon(Icons.abc),
-                        onPressed: () {
-            Get.changeTheme(
-              Get.isDarkMode ? ThemeData.light() : ThemeData.dark(),
-            );
-          },
-                     ),
-                  
+                title: Text(
+                 snapshot.data!.name.toString(),
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Color.fromRGBO(54, 89, 106, 1),
                   ),
-                InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder:(context) {
-                      return FaqsScreen();
-                    },));
-                  },
-                  child: CardInDrawer(iconUrl: 'images/info.svg',name: 'Account Information',)),
-                InkWell(
-                    onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder:(context) {
-                      return ProfileScreen();
-                    },));
-                  },
-                  child: CardInDrawer(iconUrl: 'images/Lock.svg',name: 'Password',)),
-                CardInDrawer(iconUrl: 'images/bag.svg',name: 'Order',),
-                CardInDrawer(iconUrl: 'images/card.svg',name: 'My Cards',),
-                CardInDrawer(iconUrl: 'images/Vector.svg',name: 'Wishlist',),
-                InkWell(
-                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder:(context) {
-                      return SettingsScreen();
-                    },));
-                  },
-                  child: CardInDrawer(iconUrl: 'images/Setting.svg',name: 'Settings',)),
-                InkWell(
-                  onTap: (){
-                    logout();
-                  },
-                  
-                  child: CardInDrawer(iconUrl: 'images/Logout.svg',name: 'Logout',)),
-
-                    SizedBox(height: 35,),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                    child: Row(
-                      children: 
-                      [
-                        Text('If you have any complaints ? '),
-                        TextButton(
-                        onPressed: (){
-                           Navigator.push(context, MaterialPageRoute(builder:(context) {
-                        return ComplaintsScreen();
-                      },));
-                        }, 
-                        child: 
-                        Text('Click Here'),
+                ),
+                subtitle: Text(
+                  'ID: ${snapshot.data!.id.toString()}',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.green,
+                  ),
+                ),
+                trailing: ElevatedButton(
+                  onPressed: (){},
+                  child: Text('${snapshot.data!.points.toString()} points'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue.withOpacity(0.1),
+                  ),
+                ),
+              ),
+            ),
+           
+           
+                          ],
                         ),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text('${snapshot.error}');
+                    }
+                    return const SpinKitRotatingCircle(
+                              color: Colors.blue,
+                              size: 50.0,
+                            );
+                  },
+                ),
+      
+      
+      
+           
+            Column(
+              children: [
+                Column(
+                  
+                  children: [
                     
-                      ],
-                    ),
-                  ),
-               
-
-
-                ],
+                     ListTile(
+                      leading: IconButton(icon: SvgPicture.asset('images/sun.svg'),onPressed: (){},),
+                       title: Text('Dark Mood',
+                         style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
               ),
+              
+              
+                       ),
+                       
+          
+            trailing: SwitchButtonFlutter(),
+                    ),
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder:(context){
+                        return FaqsScreen();
+                      },));
+                    },
+                    child: CardInDrawer(iconUrl: 'images/info.svg',name: 'Account Information',)),
+                  InkWell(
+                      onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder:(context) {
+                        return ProfileScreen();
+                      },));
+                    },
+                    child: CardInDrawer(iconUrl: 'images/Lock.svg',name: 'Pofile',)),
+                  CardInDrawer(iconUrl: 'images/bag.svg',name: 'Order',),
+                  CardInDrawer(iconUrl: 'images/card.svg',name: 'My Cards',),
+                  CardInDrawer(iconUrl: 'images/Vector.svg',name: 'Wishlist',),
+                  InkWell(
+                     onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder:(context) {
+                        return SettingsScreen();
+                      },));
+                    },
+                    child: CardInDrawer(iconUrl: 'images/Setting.svg',name: 'Settings',)),
+                  InkWell(
+                    onTap: (){
+                      logout();
+                    },
+                    
+                    child: CardInDrawer(iconUrl: 'images/Logout.svg',name: 'Logout',)),
+      
+                     
+                  
+                 
+      
+      
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+     
+        Positioned(
+          bottom: 0,
+          left: 10,
+          child: Row(
+            children: 
+            [
+              Text('If you have any complaints ? '),
+              TextButton(
+              onPressed: (){
+                 Navigator.push(context, MaterialPageRoute(builder:(context) {
+              return ComplaintsScreen();
+            },));
+              }, 
+              child: 
+              Text('Click Here'),
+              ),
+          
             ],
           ),
-        ],
+        ),
+
+
+
+         ]
+        
       ),
     );
   }
