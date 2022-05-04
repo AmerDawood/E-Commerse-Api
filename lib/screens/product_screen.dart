@@ -55,13 +55,12 @@ class JobsState extends State<ProductsScreen> {
       });
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      // backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: context.theme.backgroundColor,
         elevation: 0,
         title: Text(
           'Products',

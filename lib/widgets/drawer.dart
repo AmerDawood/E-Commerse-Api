@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:softagi_api/controller/api/profile_api_controller.dart';
 import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
@@ -135,84 +136,87 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
          
           Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 5, top: 20),
-                child: Column(
+              Column(
+                
+                children: [
                   
-                  children: [
-                    
-                     ListTile(
-                      leading: IconButton(icon: SvgPicture.asset('images/sun.svg'),onPressed: (){},),
-                       title: Text('Dark Mood',
-                         style: TextStyle(
+                   ListTile(
+                    leading: IconButton(icon: SvgPicture.asset('images/sun.svg'),onPressed: (){},),
+                     title: Text('Dark Mood',
+                       style: TextStyle(
               fontSize: 18,
               color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
             
-                       ),
-                       trailing:SizedBox(
-                         width: 10,
-                         height: 10,
-                         child: SwitchScreen()),
-                      // trailing: Icon(Icons.abc,),
-                    ),
-                  InkWell(
+            
+                     ),
+                     
+                     trailing:IconButton(
+                       icon: Icon(Icons.abc),
+                        onPressed: () {
+            Get.changeTheme(
+              Get.isDarkMode ? ThemeData.light() : ThemeData.dark(),
+            );
+          },
+                     ),
+                  
+                  ),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder:(context) {
+                      return FaqsScreen();
+                    },));
+                  },
+                  child: CardInDrawer(iconUrl: 'images/info.svg',name: 'Account Information',)),
+                InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder:(context) {
-                        return FaqsScreen();
+                    Navigator.push(context, MaterialPageRoute(builder:(context) {
+                      return ProfileScreen();
+                    },));
+                  },
+                  child: CardInDrawer(iconUrl: 'images/Lock.svg',name: 'Password',)),
+                CardInDrawer(iconUrl: 'images/bag.svg',name: 'Order',),
+                CardInDrawer(iconUrl: 'images/card.svg',name: 'My Cards',),
+                CardInDrawer(iconUrl: 'images/Vector.svg',name: 'Wishlist',),
+                InkWell(
+                   onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder:(context) {
+                      return SettingsScreen();
+                    },));
+                  },
+                  child: CardInDrawer(iconUrl: 'images/Setting.svg',name: 'Settings',)),
+                InkWell(
+                  onTap: (){
+                    logout();
+                  },
+                  
+                  child: CardInDrawer(iconUrl: 'images/Logout.svg',name: 'Logout',)),
+
+                    SizedBox(height: 35,),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                    child: Row(
+                      children: 
+                      [
+                        Text('If you have any complaints ? '),
+                        TextButton(
+                        onPressed: (){
+                           Navigator.push(context, MaterialPageRoute(builder:(context) {
+                        return ComplaintsScreen();
                       },));
-                    },
-                    child: CardInDrawer(iconUrl: 'images/info.svg',name: 'Account Information',)),
-                  InkWell(
-                      onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder:(context) {
-                        return ProfileScreen();
-                      },));
-                    },
-                    child: CardInDrawer(iconUrl: 'images/Lock.svg',name: 'Password',)),
-                  CardInDrawer(iconUrl: 'images/bag.svg',name: 'Order',),
-                  CardInDrawer(iconUrl: 'images/card.svg',name: 'My Cards',),
-                  CardInDrawer(iconUrl: 'images/Vector.svg',name: 'Wishlist',),
-                  InkWell(
-                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder:(context) {
-                        return SettingsScreen();
-                      },));
-                    },
-                    child: CardInDrawer(iconUrl: 'images/Setting.svg',name: 'Settings',)),
-                  InkWell(
-                    onTap: (){
-                      logout();
-                    },
+                        }, 
+                        child: 
+                        Text('Click Here'),
+                        ),
                     
-                    child: CardInDrawer(iconUrl: 'images/Logout.svg',name: 'Logout',)),
-
-                      SizedBox(height: 35,),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                      child: Row(
-                        children: 
-                        [
-                          Text('If you have any complaints ? '),
-                          TextButton(
-                          onPressed: (){
-                             Navigator.push(context, MaterialPageRoute(builder:(context) {
-                          return ComplaintsScreen();
-                        },));
-                          }, 
-                          child: 
-                          Text('Click Here'),
-                          ),
-                      
-                        ],
-                      ),
+                      ],
                     ),
-                 
+                  ),
+               
 
 
-                  ],
-                ),
+                ],
               ),
             ],
           ),

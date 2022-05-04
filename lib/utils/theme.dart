@@ -1,23 +1,24 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
 
-class ThemeService {
-  final _box = GetStorage();
-  final _key = 'isDarkMode';
-  
-  /// Get isDarkMode info from local storage and return ThemeMode
-  ThemeMode get theme => _loadThemeFromBox() ? ThemeMode.dark : ThemeMode.light;
+//  class ThemesFlutter{
+// RxBool _isLightTheme = false.obs;
 
-  /// Load isDArkMode from local storage and if it's empty, returns false (that means default theme is light)
-  bool _loadThemeFromBox() => _box.read(_key) ?? false;
-  
-  /// Save isDarkMode to local storage
-  _saveThemeToBox(bool isDarkMode) => _box.write(_key, isDarkMode);
-  
-  /// Switch theme and save to local storage
-  void switchTheme() {
-    Get.changeThemeMode(_loadThemeFromBox() ? ThemeMode.light : ThemeMode.dark);
-    _saveThemeToBox(!_loadThemeFromBox());
-  }
-}
+//   final ThemeData _darkTheme = ThemeData(
+//     accentColor: Colors.red,
+//     brightness: Brightness.dark,
+//     primaryColor: Colors.amber,
+//     buttonTheme: ButtonThemeData(
+//       buttonColor: Colors.amber,
+//       disabledColor: Colors.grey,
+//     ));
+
+// ThemeData _lightTheme = ThemeData(
+//     accentColor: Colors.pink,
+//     brightness: Brightness.light,
+//     primaryColor: Colors.blue,
+//     buttonTheme: ButtonThemeData(
+//       buttonColor: Colors.blue,
+//       disabledColor: Colors.grey,
+//     ));
+//  }

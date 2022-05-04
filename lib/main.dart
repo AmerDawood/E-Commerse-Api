@@ -21,14 +21,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await UserPreferenceController().initSharedPreference();
   HttpOverrides.global = new MyHttpOverrides();
-  SwitchButton()._getThemeStatus();
   runApp( MyApp());
 }
 
- class Themes{
-RxBool _isLightTheme = false.obs;
-
-   ThemeData _darkTheme = ThemeData(
+class ThemeFlutter{
+  
+  ThemeData _darkTheme = ThemeData(
     accentColor: Colors.red,
     brightness: Brightness.dark,
     primaryColor: Colors.amber,
@@ -45,71 +43,82 @@ ThemeData _lightTheme = ThemeData(
       buttonColor: Colors.blue,
       disabledColor: Colors.grey,
     ));
- }
- class SwitchButton extends StatelessWidget {
- Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  _saveThemeStatus() async {
-    SharedPreferences pref = await _prefs;
-    pref.setBool('theme',Themes()._isLightTheme.value);
-  }
 
-  _getThemeStatus() async {
-    var _isLight = _prefs.then((SharedPreferences prefs) {
-      return prefs.getBool('theme') != null ? prefs.getBool('theme') : true;
-    }).obs;
-    Themes()._isLightTheme.value = (await _isLight.value)!;
-    Get.changeThemeMode(Themes()._isLightTheme.value ? ThemeMode.light : ThemeMode.dark);
-  }
-  
-    @override
-    Widget build(BuildContext context) {
-      return Container(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Obx(
-                  () => Text(
-                    ' ${Themes()._isLightTheme.value ? 'Dark' : 'Light'} theme',
-                  ),
-                ),
-                ObxValue(
-                  (data) => Switch(
-                    value: Themes()._isLightTheme.value,
-                    onChanged: (val) {
-                      Themes()._isLightTheme.value = val;
-                      Get.changeThemeMode(
-                        Themes()._isLightTheme.value ? ThemeMode.light : ThemeMode.dark,
-                      );
-                      _saveThemeStatus();
-                    },
-                  ),
-                  false.obs,
-                ),
-              ],
-            ),
-          ),
-        );
+}
+
+// class SwitchFlutter extends StatelessWidget {
+//   const SwitchFlutter({ Key? key }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 Obx(
+//                   () => Text(
+//                     '${MyApp()._isLightTheme.value ? 'Dark' : 'Light'} theme',
+//                   ),
+//                 ),
+//                 ObxValue(
+//                   (data) => Switch(
+//                     value: MyApp()._isLightTheme.value,
+//                     onChanged: (val) {
+//                       MyApp()._isLightTheme.value = val;
+//                       Get.changeThemeMode(
+//                         MyApp()._isLightTheme.value ? ThemeMode.light : ThemeMode.dark,
+//                       );
+//                       MyApp()._saveThemeStatus();
+//                     },
+//                   ),
+//                   false.obs,
+//                 ),
+//               ],
+//             );
       
-              
-            
-          
-    }
-  }
+//   }
+// }
+
+
+
+
+
+
 
 class MyApp extends StatelessWidget {
+  //   RxBool _isLightTheme = false.obs;
+
+  // Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  // _saveThemeStatus() async {
+  //   SharedPreferences pref = await _prefs;
+  //   pref.setBool('theme', _isLightTheme.value);
+  // }
+
+  // _getThemeStatus() async {
+  //   var _isLight = _prefs.then((SharedPreferences prefs) {
+  //     return prefs.getBool('theme') != null ? prefs.getBool('theme') : true;
+  //   }).obs;
+  //   _isLightTheme.value = (await _isLight.value)!;
+  //   Get.changeThemeMode(_isLightTheme.value ? ThemeMode.light : ThemeMode.dark);
+  // }
+
+  
+  // MyApp() {
+  //   _getThemeStatus();
+  // }
 
 
-
- 
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: Themes()._lightTheme,
-      darkTheme: Themes()._darkTheme,
+    return  GetMaterialApp(
+      
+ theme: ThemeFlutter()._lightTheme,
+      darkTheme: ThemeFlutter()._darkTheme,
       themeMode: ThemeMode.system,
+//  theme: ThemeData(primarySwatch: Colors.green),
+//       darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.red),
       initialRoute: '/splash_screen',
       debugShowCheckedModeBanner: false,
       routes: {
@@ -136,7 +145,19 @@ class MyHttpOverrides extends HttpOverrides {
       ..badCertificateCallback =
           (X509Certificate cert, String host, int port) => true;
   }
+
+
+  
 }
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:softagi_api/controller/api/category_api_controller.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
@@ -25,9 +26,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey.shade100,
+        // backgroundColor: Colors.grey.shade100,
     appBar: AppBar(
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: context.theme.backgroundColor,
         elevation: 0,
         title: Text(
           'Category',

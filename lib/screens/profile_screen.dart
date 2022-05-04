@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:softagi_api/controller/api/profile_api_controller.dart';
 import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
@@ -30,10 +31,10 @@ class _ProfileScreenState extends State<ProfileScreen> with Helpers {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      
       appBar: AppBar(
         toolbarHeight: 60,
-        backgroundColor: Colors.white,
+        backgroundColor: context.theme.backgroundColor,
         elevation: 0,
         title: Text('Your Profile',style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.w400),),
         centerTitle: true,

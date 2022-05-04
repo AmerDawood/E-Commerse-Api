@@ -1,5 +1,6 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:softagi_api/controller/api/faqs_api_controller.dart';
 import 'package:softagi_api/model/faqs_model.dart';
 
@@ -23,9 +24,9 @@ class _FaqsScreenState extends State<FaqsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: context.theme.backgroundColor,
         elevation: 0,
         title: Text('FAQS Questions',style: TextStyle(
           color: Colors.black,

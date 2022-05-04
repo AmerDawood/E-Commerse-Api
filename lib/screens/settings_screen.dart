@@ -5,6 +5,8 @@ import 'package:softagi_api/controller/api/settings_api_controller.dart';
 import 'package:softagi_api/model/settings_model.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
+import '../main.dart';
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
@@ -37,7 +39,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Column(children: [
+        child: Column(
+          children: [
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
             child: Container(
@@ -108,7 +111,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
           ),
-        ]),
+
+
+
+
+      
+
+
+
+
+
+
+
+          
+        ]
+        ),
       ),
     );
   }

@@ -32,7 +32,7 @@ class _AppScreenState extends State<AppScreen> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      backgroundColor: context.theme.backgroundColor,
+      // backgroundColor: context.theme.backgroundColor,
       
        bottomNavigationBar: BottomNavigationBar(
          
