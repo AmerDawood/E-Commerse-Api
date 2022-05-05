@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:softagi_api/controller/api/profile_api_controller.dart';
 import 'package:softagi_api/utils/helpers.dart';
 
@@ -46,11 +47,11 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(''),
         iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
+         backgroundColor: context.theme.backgroundColor,
         elevation: 0,
       ),
       body:  Padding(
@@ -73,7 +74,8 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
                 text: 'Update Your Profile',
                 fontSize: 30,
                 fontWeight: FontWeight.w600,
-                color: Colors.black,
+                // color: Colors.black,
+                
               ),
               CustomText(
                 text: 'please enter required data ...',

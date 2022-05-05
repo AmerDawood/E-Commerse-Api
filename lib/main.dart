@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
 //  theme: ThemeData(primarySwatch: Colors.green),
 //       darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.red),
-      initialRoute: '/login_screen',
+      initialRoute: '/splash_screen',
       debugShowCheckedModeBanner: false,
       routes: {
         '/app_screen': (context) => AppScreen(),

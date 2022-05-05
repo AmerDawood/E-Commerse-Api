@@ -45,7 +45,6 @@ class _SignInState extends State<VerifyCodeScreen> with Helpers {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(254, 250, 247, 1),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,

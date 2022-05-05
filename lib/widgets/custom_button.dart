@@ -11,20 +11,25 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child:InkWell(
-                    onTap: (){
-                    function(){}
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      height: 50,
-                      color: Color.fromARGB(255, 183, 150, 218),
-                      child: Center(child: Text(text)),
-                    ),
-                  ));
+    return  ElevatedButton(
+                onPressed: () {
+                  function();
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue.withOpacity(0.1),
+                  fixedSize: Size(400, 60),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  shadowColor: Color.fromARGB(255, 61, 83, 156),
+                ),
+                child: Text(
+                 text,
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                  ),
+                ),
+              );
   }
 }
