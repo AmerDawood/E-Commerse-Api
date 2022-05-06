@@ -46,8 +46,9 @@ final ThemeData _lightTheme = ThemeData(
     brightness: Brightness.dark,
     primaryColor: Colors.white,
     buttonTheme: ButtonThemeData(
-      buttonColor: Colors.blue,
+      buttonColor: Colors.white,
       disabledColor: Colors.grey,
+      
     ));
 
 

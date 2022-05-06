@@ -98,7 +98,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 text: 'New Category',
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
-                color: Colors.black),
+                // color: Colors.black
+                ),
           ),
           SizedBox(
             height: 600,

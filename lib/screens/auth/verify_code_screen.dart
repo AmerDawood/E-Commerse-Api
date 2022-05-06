@@ -70,13 +70,13 @@ class _SignInState extends State<VerifyCodeScreen> with Helpers {
                 text: 'Verify Code ... ',
                 fontSize: 30,
                 fontWeight: FontWeight.w600,
-                color: Colors.black,
+                // color: Colors.black,
               ),
               CustomText(
                 text: 'add your email please',
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
-                color: Colors.black,
+                // color: Colors.black,
               ),
               SizedBox(
                 height: 20,

@@ -5,6 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:softagi_api/controller/api/profile_api_controller.dart';
+import 'package:softagi_api/main.dart';
 import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/faqs_screen.dart';
@@ -46,7 +47,7 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
          children :[
 
          Column(
-          children: [
+          children:[
             SizedBox(
               height: 30,
             ),
@@ -121,8 +122,6 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
                 ),
               ),
             ),
-           
-           
                           ],
                         ),
                       );
@@ -135,22 +134,17 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
                             );
                   },
                 ),
-      
-      
-      
-           
+
             Column(
               children: [
                 Column(
-                  
                   children: [
-                    
                      ListTile(
-                      leading: IconButton(icon: SvgPicture.asset('images/sun.svg'),onPressed: (){},),
+                      leading: IconButton(icon: SvgPicture.asset('images/sun.svg',color: Colors.grey,),onPressed: (){},),
                        title: Text('Dark Mood',
                          style: TextStyle(
                 fontSize: 18,
-                color: Colors.black,
+                // color: Colors.black,
                 fontWeight: FontWeight.w600,
               ),
               
@@ -183,15 +177,21 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
                         return SettingsScreen();
                       },));
                     },
-                    child: CardInDrawer(iconUrl: 'images/Setting.svg',name: 'Settings',)),
-                  InkWell(
-                    onTap: (){
-                      logout();
-                    },
-                    
-                    child: CardInDrawer(iconUrl: 'images/Logout.svg',name: 'Logout',)),
-      
-                     
+                    child: CardInDrawer(iconUrl: 'images/Setting.svg',name: 'Settings'),),
+                 
+                         ListTile(
+                      leading: IconButton(icon: SvgPicture.asset('images/Logout.svg',color: Colors.red,),onPressed: (){},),
+                       title: Text('Logout',
+                         style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.red,
+                
+              ),
+              
+              
+                       ),
+                    ),
                   
                  
       
@@ -259,11 +259,15 @@ class CardInDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return
         ListTile(
-                      leading: IconButton(icon: SvgPicture.asset(iconUrl),onPressed: (){},),
+                      leading: IconButton(
+                        icon: SvgPicture.asset(iconUrl,
+                        color: Colors.grey,
+                        
+                        ),onPressed: (){},),
                        title: Text(name,
                          style: TextStyle(
               fontSize: 18,
-              color: Colors.black,
+              // color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
                        ),

@@ -1,7 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:softagi_api/controller/api/profile_api_controller.dart';
+import 'package:softagi_api/model/profile_model.dart';
+import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/utils/helpers.dart';
 
 import '../controller/api/complaints_api_controller.dart';
@@ -22,6 +25,11 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
   late TextEditingController passwordEditingController;
   late TextEditingController phoneEditingController;
   late TextEditingController imageEditingController;
+  
+  late Future<UserData> _future;
+
+  
+
 
   @override
   void initState() {
@@ -32,6 +40,12 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
     passwordEditingController = TextEditingController();
     phoneEditingController = TextEditingController();
     imageEditingController =TextEditingController();
+   _future =ProfileApiController().getUserData();
+   nameEditingController.text=UserPreferenceController().name;
+   emailEditingController.text=UserPreferenceController().email;
+   phoneEditingController.text=UserPreferenceController().phone;
+
+
   }
 
   @override
@@ -44,6 +58,9 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
     // TODO: implement dispose
     super.dispose();
   }
+
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,19 +68,22 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
       appBar: AppBar(
         title: Text(''),
         iconTheme: IconThemeData(color: Colors.black),
-         backgroundColor: context.theme.backgroundColor,
+        //  backgroundColor: context.theme.backgroundColor,
         elevation: 0,
       ),
-      body:  Padding(
+      body:  FutureBuilder<UserData>(
+                future: _future,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return 
+       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: SingleChildScrollView(
           child:
            Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // SizedBox(
-              //   height: 50,
-              // ),
+              
               SizedBox(
                 height: 15,
               ),
@@ -81,39 +101,72 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
                 text: 'please enter required data ...',
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
-                color: Colors.black,
+                // color: Colors.black,
               ),
               SizedBox(
                 height: 20,
               ),
-              CustomTextField(
-                text: 'Name',
-                textEditingController: nameEditingController,
-              ),
+            
+              TextField(
+                enabled: true,
+               
+      controller: nameEditingController,
+      
+      keyboardType: TextInputType.emailAddress,
+       
+      decoration: InputDecoration(
+        
+        hintText: 'Amer Dawood',
+        
+        
+        
+        enabledBorder: OutlineInputBorder(
+          
+          borderSide: BorderSide(
+            width: 1,
+            color: Colors.grey.shade500,
+          ),
+        ),
+        labelText: 'amermaher',
+        labelStyle: TextStyle(
+          fontSize: 20,
+        ),
+        focusedBorder: OutlineInputBorder(
+          
+          borderSide: BorderSide(
+            
+            width: 1,
+            color: Colors.grey.shade500,
+          ),
+        
+        ),
+      ),
+    ),
               SizedBox(
                 height: 15,
               ),
               CustomTextField(
+                
                 text: 'Email',
                 textEditingController: emailEditingController,
+                
               ),
               SizedBox(height: 10),
-              CustomTextField(
-                text: 'Password',
-                textEditingController: passwordEditingController,
-              ),
+              // CustomTextField(
+              //   text: 'Password',
+                
+              //   textEditingController: passwordEditingController,
+              // ),
               SizedBox(height: 10),
               CustomTextField(
                 text: 'Phone Number',
                 textEditingController: phoneEditingController,
               ),
-              SizedBox(height: 10),
-
-
-               CustomTextField(
-                text: 'Image URL',
-                textEditingController: imageEditingController,
-              ),
+              // SizedBox(height: 10),
+              //  CustomTextField(
+              //   text: 'Image URL',
+              //   textEditingController: imageEditingController,
+              // ),
               SizedBox(height: 10),
 
               ElevatedButton(
@@ -143,8 +196,19 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
             ],
           ),
         ),
-      ),
-
+      );
+                    
+                  } else if (snapshot.hasError) {
+                    return Text('${snapshot.error}');
+                  }
+                 return Center(child: const SpinKitRotatingCircle(
+                            color: Colors.blue,
+                            size: 50.0,
+                          ),);
+                },
+              ),
+      
+     
     );
   }
 
@@ -167,3 +231,5 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
   }
 
 }
+
+

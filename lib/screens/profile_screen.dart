@@ -22,11 +22,14 @@ class _ProfileScreenState extends State<ProfileScreen> with Helpers {
 
   late Future<UserData> _future;
 
+  
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _future =ProfileApiController().getUserData();
+
   }
   @override
   Widget build(BuildContext context) {
@@ -58,9 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> with Helpers {
                     
                        
                         children: 
-                        [
-
-                         
+                        [    
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
               child: Column(

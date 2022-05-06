@@ -72,13 +72,13 @@ class _SignInState extends State<LoginScreen> with Helpers {
                 text: 'Login Screen ... ',
                 fontSize: 30,
                 fontWeight: FontWeight.w600,
-                color: Colors.black,
+                // color: Colors.black,
               ),
               CustomText(
                 text: 'First login your account.',
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
-                color: Colors.black,
+                // color: Colors.black,
               ),
               SizedBox(
                 height: 20,

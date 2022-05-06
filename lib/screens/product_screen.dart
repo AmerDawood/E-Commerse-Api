@@ -188,7 +188,8 @@ class JobsState extends State<ProductsScreen> {
                                                     .toString(),
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.normal,
-                                                color: Colors.black),
+                                                // color: Colors.black
+                                                ),
                                             CustomText(
                                                 text:
                                                     'price : ${productList[index].price}\$',
@@ -199,7 +200,8 @@ class JobsState extends State<ProductsScreen> {
                                                 text: 'discount : ${productList[index].discount} %',
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.normal,
-                                                color: Colors.black),
+                                                // color: Colors.black
+                                                ),
                                       ],
                                     ),
                                   ),

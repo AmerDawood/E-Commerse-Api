@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                     text: 'Hi,  ${snapshot.data!.name.toString()}',
                     fontSize: 31,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    // color: Colors.black,
                   );
                  
                 } else {
@@ -176,7 +176,8 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                         text: 'Category',
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
-                        color: Colors.black),
+                        // color: Colors.black
+                        ),
                     Spacer(),
                     InkWell(
                       onTap: () {
@@ -186,7 +187,8 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                           text: 'View All',
                           fontSize: 18,
                           fontWeight: FontWeight.normal,
-                          color: Colors.grey),
+                          // color: Colors.grey
+                          ),
                     )
                   ],
                 ),
@@ -256,13 +258,15 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                         text: 'Choose Brand',
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
-                        color: Colors.black),
+                        // color: Colors.black
+                        ),
                     Spacer(),
                     CustomText(
                         text: 'View All',
                         fontSize: 18,
                         fontWeight: FontWeight.normal,
-                        color: Colors.grey)
+                        color: Colors.grey
+                        )
                   ],
                 ),
                 SizedBox(
@@ -285,7 +289,8 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                         text: 'New Aeeaivel',
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
-                        color: Colors.black),
+                        // color: Colors.black
+                        ),
                     Spacer(),
                     InkWell(
                       onTap: () {
@@ -295,7 +300,8 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                           text: 'View All',
                           fontSize: 18,
                           fontWeight: FontWeight.normal,
-                          color: Colors.grey),
+                          color: Colors.grey
+                          ),
                     )
                   ],
                 ),
@@ -377,19 +383,22 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                                                     .toString(),
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.normal,
-                                                color: Colors.black),
+                                                // color: Colors.black
+                                                ),
                                             // SizedBox(height: 10,),
                                             CustomText(
                                                 text:
                                                     'price : ${_product[index].price}\$',
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.normal,
-                                                color: Colors.green),
+                                                color: Colors.green
+                                                ),
                                             CustomText(
                                                 text: 'discount : ${_product[index].discount} %',
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.normal,
-                                                color: Colors.black),
+                                                // color: Colors.black
+                                                ),
                                           ],
                                         ),
                                       ),

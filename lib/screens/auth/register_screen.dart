@@ -70,13 +70,13 @@ class _RegisterScreenState extends State<RegisterScreen> with Helpers {
                 text: 'Create New Account',
                 fontSize: 30,
                 fontWeight: FontWeight.w600,
-                color: Colors.black,
+                // color: Colors.black,
               ),
               CustomText(
                 text: 'please enter requierd data ...',
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
-                color: Colors.black,
+                // color: Colors.black,
               ),
               SizedBox(
                 height: 20,
