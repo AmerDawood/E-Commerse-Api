@@ -26,12 +26,12 @@ class _SplashScreenState extends State<SplashScreen> {
   
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 212, 192, 234),
+      backgroundColor: Color.fromARGB(150, 124, 250, 2000),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Text('WLCOME TO SOFTAGI API',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
+            child: Text('LAZE',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
           ),
         ],
       ),

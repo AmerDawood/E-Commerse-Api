@@ -16,12 +16,10 @@ class CustomButton extends StatelessWidget {
                   function();
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.blue.withOpacity(0.1),
                   fixedSize: Size(400, 60),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  shadowColor: Color.fromARGB(255, 61, 83, 156),
+                
+                  // shadowColor: Color.fromRGBO(151,117,250,1),
+                  primary:Color.fromRGBO(151, 117, 250, 1),
                 ),
                 child: Text(
                  text,

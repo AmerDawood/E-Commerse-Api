@@ -1,11 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 import '../../utils/helpers.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
+import '../../widgets/theme_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -45,105 +47,221 @@ class _SignInState extends State<LoginScreen> with Helpers {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Color.fromRGBO(254, 250, 247, 1),
+      // backgroundColor: Color.fromRGBO(229, 229, 229, 1),
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
-      body: Stack(
-        children: [
-          
-         Padding(
-           padding: const EdgeInsets.all(15.0),
-           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 50,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomText(
-                text: 'Login Screen ... ',
-                fontSize: 30,
-                fontWeight: FontWeight.w600,
-                // color: Colors.black,
-              ),
-              CustomText(
-                text: 'First login your account.',
-                fontSize: 20,
-                fontWeight: FontWeight.normal,
-                // color: Colors.black,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextField(
-                text: 'Email',
-                textEditingController: emailTextController,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              CustomTextField(
-                text: 'Password',
-                textEditingController: passwordTextController,
-              ),
-              SizedBox(height: 10),
-              Center(
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Don\'t have an account ?',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 17,
+      body:
+       Stack(
+
+         children:[
+
+           Column(
+             children: [
+               
+               Padding(
+                 padding: const EdgeInsets.only(top: 30,left: 10),
+                 child: Align(
+                   alignment: AlignmentDirectional.topStart,
+                   child: 
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade300,
+                      borderRadius:BorderRadius.circular(60),
                     ),
-                    children: <InlineSpan>[
-                      TextSpan(
-                        text: ' Register Now',
-                        recognizer: _tapGestureRecognizer,
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 53, 88, 139),
+                    child:  IconButton(onPressed: (){}, icon:const Icon(Icons.arrow_back,)),
+                  ),
+                   ),
+               ),
+
+            
+             Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+               
+               CustomText(text: 'Welcome', fontSize: 30, fontWeight:FontWeight.bold),
+               
+             ],
+           ),
+           SizedBox(height: 6,),
+            Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+               CustomText(
+                 text: 'Please enter your data to continue',
+                  fontSize: 18, 
+                  fontWeight:FontWeight.bold,
+                  color: Color.fromRGBO(143, 149, 158, 1),
+                  ),
+             
+             ],
+           ),
+             ],
+           ),
+
+          
+         Center(
+           child: Column(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children:[
+            
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15,right: 15),
+                    child: TextFormField(
+                      controller: emailTextController,
+                      decoration: const InputDecoration(
+                        
+                        
+                        labelText: 'Email',
+                        labelStyle: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 23,
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 10),
-              Center(
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.pushNamed(context, '/send_code');
-                  },
-                  child: CustomText(
-                    text: 'Forget Password ?',
-                    fontSize: 18,
-                    fontWeight: FontWeight.normal,
-                    color: Color.fromARGB(255, 53, 88, 139),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10),
-              CustomButton(
-                function: ()async =>await performLogin(),
-                text: 'Get Started',
-              ),
-              SizedBox(
-                height: 20,
-              ),
-            ],
-        ),
+                        
+                        enabledBorder: UnderlineInputBorder(
+                         borderSide: BorderSide(color: Colors.grey),
+                          
+                        ),
+         
+         focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                    
          ),
-        // CustomButton(text: 'Login Now', function: ()async => await performLogin()),
-        ],
+         
+                        
+                      ),
+                      
+                      
+                    ),
+                  ),
+        SizedBox(
+                              height:20,
+                            ),
+       
+       
+                        Padding(
+                    padding: const EdgeInsets.only(left: 15,right: 15,bottom: 15),
+                          child: TextFormField(
+                            controller: passwordTextController,
+                            decoration: const InputDecoration(
+                              
+                              
+                              labelText: 'Password',
+                              labelStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 23,
+                              ),
+                              
+                              enabledBorder: UnderlineInputBorder(
+                               borderSide: BorderSide(color: Colors.grey),
+                                
+                              ),
+         
+         focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                  
+         ),
+         
+                              
+                            ),
+                            
+                            
+                          ),
+                        ),
+                       Padding(
+                         padding: const EdgeInsets.only(right:10),
+                         child: Row(
+             children: [
+               Spacer(),
+               CustomText(text: 'Forget Password ? ',color: Colors.red, fontSize: 18, fontWeight: FontWeight.normal),
+             ],
+           ),
+                       ),
+          
+
+           Padding(
+             padding: const EdgeInsets.only(top: 20,left: 20,right:15),
+             child: Row(
+               children: [
+                 CustomText(text: 'Remember me ', fontSize:18, fontWeight:FontWeight.normal),
+                 Spacer(),
+                 SwitchButtonFlutter(),
+               ],
+             ),
+           ),
+
+
         
-      ),
+       
+            
+             ],
+           ),
+         ),
+          
+
+
+          Column(
+            children: [
+              SizedBox(height: 640,),
+              Padding(
+         padding: const EdgeInsets.only(left: 15,right: 15),
+         child: Column(
+           children: [
+             Text(
+           'By connecting your account confirm that you agree ',
+            textAlign: TextAlign.center,
+     
+           style: TextStyle(
+             height: 1.5,
+             fontSize: 16,
+           ),
+         ),
+         Row(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: [
+             
+               Text(
+           'with our',
+            textAlign: TextAlign.center,
+           style: TextStyle(
+             height: 1.5,
+             fontSize: 16,
+           ),
+         ),
+             Text(
+           ' Term and Condition',
+            textAlign: TextAlign.center,
+           style: TextStyle(
+             fontWeight: FontWeight.bold,
+             height: 1.5,
+             fontSize: 17,
+           ),
+         ),
+           ],
+         ),
+
+
+ 
+           ],
+         ),
+       ),
+            ],
+          ),
+
+
+          Positioned(
+            bottom: 0,
+            child:CustomButton(
+              text: 'Login', 
+            function: ()=>performLogin(),
+            ),
+          ),
+
+
+     
+         ]
+        
+       ),
     );
   }
 

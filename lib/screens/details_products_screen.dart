@@ -46,7 +46,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children:[
                       IconButton(
                         icon: Icon(Icons.arrow_back,color: Colors.black,),
                         iconSize: 30.0,

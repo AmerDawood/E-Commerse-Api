@@ -48,15 +48,14 @@ final ThemeData _lightTheme = ThemeData(
     buttonTheme: ButtonThemeData(
       buttonColor: Colors.white,
       disabledColor: Colors.grey,
-      
-    ));
+    ),
+    );
 
 
 }
 
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context){
     return  GetMaterialApp(
@@ -66,7 +65,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
 //  theme: ThemeData(primarySwatch: Colors.green),
 //       darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.red),
-      initialRoute: '/splash_screen',
+      initialRoute: '/login_screen',
       debugShowCheckedModeBanner: false,
       routes: {
         '/app_screen': (context) => AppScreen(),
@@ -92,31 +91,7 @@ class MyHttpOverrides extends HttpOverrides {
       ..badCertificateCallback =
           (X509Certificate cert, String host, int port) => true;
   }
-
-
-  
 }
-
-
-
-
-
-
-// class saveTheme{
-//   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-
-//   _saveThemeStatus() async {
-//     SharedPreferences pref = await _prefs;
-//     pref.setBool('theme', _isLightTheme.value);
-//   }
-
-//   _getThemeStatus() async {
-//     var _isLight = _prefs.then((SharedPreferences prefs) {
-//       return prefs.getBool('theme') != null ? prefs.getBool('theme') : true;
-//     }).obs;
-//     _isLightTheme.value = await _isLight.value;
-//     Get.changeThemeMode(_isLightTheme.value ? ThemeMode.light : ThemeMode.dark);
-// }
 
 
 

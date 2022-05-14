@@ -8,6 +8,7 @@ import 'package:softagi_api/controller/api/profile_api_controller.dart';
 import 'package:softagi_api/main.dart';
 import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
+import 'package:softagi_api/screens/auth/login_screen.dart';
 import 'package:softagi_api/screens/faqs_screen.dart';
 import 'package:softagi_api/screens/profile_screen.dart';
 import 'package:softagi_api/utils/helpers.dart';
@@ -174,7 +175,7 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
                   InkWell(
                      onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder:(context) {
-                        return SettingsScreen();
+                        return LoginScreen();
                       },));
                     },
                     child: CardInDrawer(iconUrl: 'images/Setting.svg',name: 'Settings'),),
