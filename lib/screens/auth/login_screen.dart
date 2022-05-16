@@ -2,12 +2,15 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 import '../../utils/helpers.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/theme_widget.dart';
+import '../faqs_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -50,6 +53,7 @@ class _SignInState extends State<LoginScreen> with Helpers {
       // backgroundColor: Color.fromRGBO(229, 229, 229, 1),
       extendBodyBehindAppBar: true,
       body:
+      
        Stack(
 
          children:[
@@ -185,7 +189,7 @@ class _SignInState extends State<LoginScreen> with Helpers {
                children: [
                  CustomText(text: 'Remember me ', fontSize:18, fontWeight:FontWeight.normal),
                  Spacer(),
-                 SwitchButtonFlutter(),
+                //  SwitchButtonFlutter(),
                ],
              ),
            ),
@@ -228,15 +232,21 @@ class _SignInState extends State<LoginScreen> with Helpers {
              fontSize: 16,
            ),
          ),
-             Text(
-           ' Term and Condition',
-            textAlign: TextAlign.center,
-           style: TextStyle(
-             fontWeight: FontWeight.bold,
-             height: 1.5,
-             fontSize: 17,
-           ),
-         ),
+             InkWell(
+
+               onTap: (){
+                 Get.to(FaqsScreen());
+               },
+               child: Text(
+                        ' Term and Condition',
+                         textAlign: TextAlign.center,
+                        style: TextStyle(
+               fontWeight: FontWeight.bold,
+               height: 1.5,
+               fontSize: 17,
+                        ),
+                      ),
+             ),
            ],
          ),
 
@@ -262,6 +272,7 @@ class _SignInState extends State<LoginScreen> with Helpers {
          ]
         
        ),
+  
     );
   }
 

@@ -22,7 +22,6 @@ void main() async {
   await UserPreferenceController().initSharedPreference();
   await SwitchButtonFlutter().getThemeStatus();
   await SwitchButtonFlutter().saveThemeStatus();
-
   HttpOverrides.global = new MyHttpOverrides();
   runApp( MyApp());
 }
@@ -35,25 +34,27 @@ class ThemeFlutter{
   final ThemeData _darkTheme = ThemeData(
     accentColor: Colors.black,
     brightness: Brightness.light,
-    primaryColor: Colors.amber,
+    primaryColor: Colors.white,
     buttonTheme: ButtonThemeData(
       buttonColor: Colors.amber,
-      disabledColor: Colors.grey,
+      disabledColor: Colors.white,
+      splashColor: Colors.white,
     ));
 
 final ThemeData _lightTheme = ThemeData(
     accentColor: Colors.grey,
     brightness: Brightness.dark,
-    primaryColor: Colors.white,
+    primaryColor: Colors.black.withOpacity(0.1),
     buttonTheme: ButtonThemeData(
       buttonColor: Colors.white,
-      disabledColor: Colors.grey,
+      disabledColor: Colors.white,
+      splashColor: Colors.white,
+
     ),
     );
 
 
 }
-
 
 class MyApp extends StatelessWidget {
   @override
@@ -62,10 +63,10 @@ class MyApp extends StatelessWidget {
       
  theme: ThemeFlutter()._lightTheme,
       darkTheme: ThemeFlutter()._darkTheme,
-      themeMode: ThemeMode.system,
-//  theme: ThemeData(primarySwatch: Colors.green),
-//       darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.red),
-      initialRoute: '/login_screen',
+      // themeMode: ThemeMode.system,
+    
+      
+      initialRoute: '/home_screen',
       debugShowCheckedModeBanner: false,
       routes: {
         '/app_screen': (context) => AppScreen(),

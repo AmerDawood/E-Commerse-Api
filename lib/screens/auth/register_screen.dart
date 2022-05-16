@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
+import 'package:softagi_api/screens/auth/login_screen.dart';
 import 'package:softagi_api/utils/helpers.dart';
 
+import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
+import '../../widgets/theme_widget.dart';
 
 
 
@@ -44,92 +48,226 @@ class _RegisterScreenState extends State<RegisterScreen> with Helpers {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.black,size: 30),
-      ),
+      
      
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        child: SingleChildScrollView(
-          child:
+      body: 
+ 
+       Stack(
+
+         children:[
+
            Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 50,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomText(
-                text: 'Create New Account',
-                fontSize: 30,
-                fontWeight: FontWeight.w600,
-                // color: Colors.black,
-              ),
-              CustomText(
-                text: 'please enter requierd data ...',
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-                // color: Colors.black,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextField(
-                text: 'Name',
-                textEditingController: nameEditingController,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              CustomTextField(
-                text: 'Email',
-                textEditingController: emailEditingController,
-              ),
-              SizedBox(height: 10),
-              CustomTextField(
-                text: 'Password',
-                textEditingController: passwordEditingController,
-              ),
-              SizedBox(height: 10),
-              CustomTextField(
-                text: 'Phone Number',
-                textEditingController: phoneEditingController,
-              ),
-              SizedBox(height: 10),
-              
-              ElevatedButton(
-                onPressed: () async => await performRegister(),
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 53, 88, 139),
-                  fixedSize: Size(400, 60),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
+             children: [
+               
+               Padding(
+                 padding: const EdgeInsets.only(top: 30,left: 10),
+                 child: Align(
+                   alignment: AlignmentDirectional.topStart,
+                   child: 
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade300,
+                      borderRadius:BorderRadius.circular(60),
+                    ),
+                    child:  IconButton(onPressed: (){
+                      Get.to(LoginScreen());
+                    }, icon:const Icon(Icons.arrow_back,)),
                   ),
-                  shadowColor: Color.fromARGB(255, 61, 83, 156),
-                ),
-                child: Text(
-                  'Register Now',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
+                   ),
+               ),
+
+            
+             Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+               
+               CustomText(text: 'Sign Up', fontSize: 30, fontWeight:FontWeight.bold),
+               
+             ],
+           ),
+        
+             ],
+           ),
+
+          
+         Center(
+           child: Column(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children:[
+            
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15,right: 10),
+                    child: TextFormField(
+                      controller: nameEditingController,
+                      decoration: const InputDecoration(
+                        
+                        
+                        labelText: 'Name',
+                        labelStyle: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 23,
+                        ),
+                        
+                        enabledBorder: UnderlineInputBorder(
+                         borderSide: BorderSide(color: Colors.grey),
+                          
+                        ),
+         
+         focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                    
+         ),
+         
+                        
+                      ),
+                      
+                      
+                    ),
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(height: 15),
-            ],
+        SizedBox(
+                              height:20,
+                            ),
+       
+       
+                        Padding(
+                    padding: const EdgeInsets.only(left: 15,right: 15,bottom: 4),
+                          child: TextFormField(
+                            controller: emailEditingController,
+                            decoration: const InputDecoration(
+                              
+                              
+                              labelText: 'Email',
+                              labelStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 23,
+                              ),
+                              
+                              enabledBorder: UnderlineInputBorder(
+                               borderSide: BorderSide(color: Colors.grey),
+                                
+                              ),
+         
+         focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                  
+         ),
+         
+                              
+                            ),
+                            
+                            
+                          ),
+                        ),
+
+SizedBox(
+                              height:20,
+                            ),
+       
+       
+                        Padding(
+                    padding: const EdgeInsets.only(left: 15,right: 15,bottom:4),
+                          child: TextFormField(
+                            controller: passwordEditingController,
+                            decoration: const InputDecoration(
+                              
+                              
+                              labelText: 'Password',
+                              labelStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 23,
+                              ),
+                              
+                              enabledBorder: UnderlineInputBorder(
+                               borderSide: BorderSide(color: Colors.grey),
+                                
+                              ),
+         
+         focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                  
+         ),
+         
+                              
+                            ),
+                            
+                            
+                          ),
+                        ),
+                        SizedBox(
+                              height:20,
+                            ),
+       
+       
+                        Padding(
+                    padding: const EdgeInsets.only(left: 15,right: 15,bottom: 4),
+                          child: TextFormField(
+                            controller: phoneEditingController,
+                            decoration: const InputDecoration(
+                              
+                              
+                              labelText: 'Phone',
+                              labelStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 23,
+                              ),
+                              
+                              enabledBorder: UnderlineInputBorder(
+                               borderSide: BorderSide(color: Colors.grey),
+                                
+                              ),
+         
+         focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                  
+         ),
+         
+                              
+                            ),
+                            
+                            
+                          ),
+                        ),
+
+          
+
+           Padding(
+             padding: const EdgeInsets.only(top: 10,left: 20,right:15),
+             child: Row(
+               children: [
+                 CustomText(text: 'Remember me ', fontSize:18, fontWeight:FontWeight.normal),
+                 Spacer(),
+                 SwitchButtonFlutter(),
+               ],
+             ),
+           ),
+
+
+        
+       
+            
+             ],
+           ),
+         ),
+          
+
+
+       
+          Positioned(
+            bottom: 0,
+            child: CustomButton(
+              text: 'Sign Up', 
+            function: ()=>performRegister(),
+            ),
           ),
-        ),
-      ),
+
+
+     
+         ]
+        
+       ),
+  
     );
   }
 

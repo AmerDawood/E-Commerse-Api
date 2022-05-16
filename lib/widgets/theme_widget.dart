@@ -9,7 +9,9 @@ ThemeData _darkTheme = ThemeData(
     primaryColor: Colors.amber,
     buttonTheme: ButtonThemeData(
       buttonColor: Colors.amber,
-      disabledColor: Colors.grey,
+      disabledColor: Colors.white,
+      splashColor: Colors.white,
+
     ));
 
 ThemeData _lightTheme = ThemeData(
@@ -18,7 +20,8 @@ ThemeData _lightTheme = ThemeData(
     primaryColor: Colors.blue,
     buttonTheme: ButtonThemeData(
       buttonColor: Colors.blue,
-      disabledColor: Colors.grey,
+      disabledColor: Colors.white,
+      splashColor: Colors.white,
     ));
 
 class SwitchButtonFlutter extends StatelessWidget {

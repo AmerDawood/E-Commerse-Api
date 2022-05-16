@@ -76,4 +76,37 @@ class ProfileApiController with Helpers {
 
     return false;
   }
+
+   Future<bool> changePassword({required BuildContext context,required String current_password , required String new_password})async{
+ var url = Uri.parse(ApiSettings.ChangePassword);
+    var response = await http.post(url, body: {
+      'current_password': current_password,
+      'new_password':new_password,
+    }
+    );
+    if (response.statusCode == 200) {
+      var jsonResponse = jsonDecode(response.body);
+      if (jsonResponse['data'] != null) {
+        showSnackBar(
+          context: context,
+          message: jsonDecode(response.body)['message'],
+          error: false,
+        );
+        return true;
+      } else {
+        showSnackBar(
+          context: context,
+          message: jsonDecode(response.body)['message'],
+          error: true,
+        );
+        return false;
+      }
+    } else if (response.statusCode == 400) {
+      //
+    }
+
+    return false;
+
+  }
+
 }

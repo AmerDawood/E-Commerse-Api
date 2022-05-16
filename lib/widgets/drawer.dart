@@ -9,10 +9,10 @@ import 'package:softagi_api/main.dart';
 import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/auth/login_screen.dart';
+import 'package:softagi_api/screens/change_password.dart';
 import 'package:softagi_api/screens/faqs_screen.dart';
 import 'package:softagi_api/screens/profile_screen.dart';
 import 'package:softagi_api/utils/helpers.dart';
-import 'package:softagi_api/widgets/switch_widget.dart';
 import 'package:softagi_api/widgets/theme_widget.dart';
 
 import '../screens/complaints_screen.dart';
@@ -158,41 +158,60 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
                   InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder:(context){
-                        return FaqsScreen();
+                        return ProfileScreen();
                       },));
                     },
                     child: CardInDrawer(iconUrl: 'images/info.svg',name: 'Account Information',)),
                   InkWell(
                       onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder:(context) {
-                        return ProfileScreen();
+                        return ChangePassword();
                       },));
                     },
-                    child: CardInDrawer(iconUrl: 'images/Lock.svg',name: 'Pofile',)),
+                    child: CardInDrawer(iconUrl: 'images/Lock.svg',name: 'Password',)),
                   CardInDrawer(iconUrl: 'images/bag.svg',name: 'Order',),
                   CardInDrawer(iconUrl: 'images/card.svg',name: 'My Cards',),
                   CardInDrawer(iconUrl: 'images/Vector.svg',name: 'Wishlist',),
+                 
                   InkWell(
                      onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder:(context) {
-                        return LoginScreen();
+                               Navigator.push(context, MaterialPageRoute(
+                        builder:(context) {
+                        return SettingsScreen();
                       },));
                     },
                     child: CardInDrawer(iconUrl: 'images/Setting.svg',name: 'Settings'),),
                  
-                         ListTile(
-                      leading: IconButton(icon: SvgPicture.asset('images/Logout.svg',color: Colors.red,),onPressed: (){},),
-                       title: Text('Logout',
-                         style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color: Colors.red,
-                
-              ),
-              
-              
-                       ),
-                    ),
+
+
+
+                         InkWell(
+                           onTap: (){
+                               Navigator.push(context, MaterialPageRoute(
+                        builder:(context) {
+                        return LoginScreen();
+                      },));
+                   
+                           },
+                           child: ListTile(
+                                               leading: IconButton(
+                                                 icon: SvgPicture.asset('images/Logout.svg',color: Colors.red,),
+                                               onPressed: (){
+                                               },
+                                               ),
+                                             
+                                                title: Text('Logout',
+                           style: TextStyle(
+                                         fontSize: 18,
+                                         fontWeight: FontWeight.w600,
+                                         color: Colors.red,
+                                         
+                                       ),
+                                       
+                                       
+                                                ),
+                                             ),
+                         ),
                   
                  
       

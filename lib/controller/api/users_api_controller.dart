@@ -134,7 +134,12 @@ class UserAPIController with Helpers {
     var response = await http.post(url, body: {
       'email': email,
       'code':code,
-    });
+    },
+     headers: {
+        HttpHeaders.authorizationHeader: UserPreferenceController().token,
+        HttpHeaders.acceptHeader: 'application/json',
+      },
+    );
     if (response.statusCode == 200) {
       var jsonResponse = jsonDecode(response.body);
       if (jsonResponse['data'] != null) {
@@ -166,7 +171,8 @@ class UserAPIController with Helpers {
       'email': email,
       'code':code,
       'password':password,
-    });
+    }
+    );
     if (response.statusCode == 200) {
       var jsonResponse = jsonDecode(response.body);
       if (jsonResponse['data'] != null) {
@@ -192,6 +198,8 @@ class UserAPIController with Helpers {
 
   }
 
+
+ 
 
 
 }

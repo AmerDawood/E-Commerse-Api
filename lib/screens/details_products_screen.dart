@@ -171,54 +171,57 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             SizedBox(
               height: 50.0,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 60.0,
-                  width: 220.0,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color: Colors.blue.shade200,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          offset: Offset(0, 2),
-                          blurRadius: 20.0,
-                        )
-                      ]),
-                  child: Center(
-                    child: Text(
-                      'Buy Now',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 20.0,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: 60.0,
+                    width: 220.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.blue.shade200,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            offset: Offset(0, 2),
+                            blurRadius: 20.0,
+                          )
+                        ]),
+                    child: Center(
+                      child: Text(
+                        'Buy Now',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Container(
-                  height: 60.0,
-                  width: 100.0,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color:Colors.blue.shade200,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          offset: Offset(0, 2),
-                          blurRadius: 20.0,
-                        )
-                      ]),
-                  child: Center(
-                      child: Icon(
-                    Icons.favorite_border,
-                    color: Colors.white,
-                    size: 30.0,
-                  )),
-                ),
-              ],
+                  Container(
+                    height: 60.0,
+                    width: 100.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color:Colors.blue.shade200,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            offset: Offset(0, 2),
+                            blurRadius: 20.0,
+                          )
+                        ]),
+                    child: Center(
+                        child: Icon(
+                      Icons.favorite_border,
+                      color: Colors.white,
+                      size: 30.0,
+                    )),
+                  ),
+                ],
+              ),
             )
           ],
         ),

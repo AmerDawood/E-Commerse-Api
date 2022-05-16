@@ -22,6 +22,7 @@ class ApiSettings{
   static const NOTIFICATIONS = _API_URL+'notifications';
 
    static const productsSearch = _API_URL+'products/search';
+   static const ChangePassword =_API_URL+'change-password';
 
 
 

@@ -47,10 +47,11 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: context.theme.backgroundColor,
       drawer: MyDrawer(),
       appBar: AppBar(
-        backgroundColor: context.theme.backgroundColor,
+     
+        backgroundColor:context.theme.primaryColor,
+        
         iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         actions: [

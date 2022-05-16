@@ -37,7 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> with Helpers {
       
       appBar: AppBar(
         toolbarHeight: 60,
-        backgroundColor: context.theme.backgroundColor,
+        backgroundColor: context.theme.splashColor,
         elevation: 0,
         title: Text('Your Profile',style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.w400),),
         centerTitle: true,

@@ -34,7 +34,7 @@ class _FaqsScreenState extends State<FaqsScreen> {
           fontWeight:FontWeight.w400,
            shadows: <Shadow>[
    
-    ],
+        ],
         
         ),
         
@@ -42,7 +42,7 @@ class _FaqsScreenState extends State<FaqsScreen> {
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/app_screen');
+            Navigator.pushNamed(context, '/login_screen');
           },
           icon: Icon(Icons.arrow_back,color: Colors.black,),
         ),
