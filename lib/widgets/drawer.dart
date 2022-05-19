@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:softagi_api/constanse/const_color.dart';
 import 'package:softagi_api/controller/api/profile_api_controller.dart';
 import 'package:softagi_api/main.dart';
 import 'package:softagi_api/model/profile_model.dart';
@@ -237,7 +238,7 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
             },));
               }, 
               child: 
-              Text('Click Here'),
+              Text('Click Here',style: TextStyle(color: primaryColor),),
               ),
           
             ],

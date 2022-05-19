@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
+import 'package:softagi_api/screens/Sign_with_social.dart';
+import 'package:softagi_api/screens/auth/send_code_screen.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 import '../../utils/helpers.dart';
 import '../../widgets/custom_text.dart';
@@ -62,7 +64,7 @@ class _SignInState extends State<LoginScreen> with Helpers {
              children: [
                
                Padding(
-                 padding: const EdgeInsets.only(top: 30,left: 10),
+                 padding: const EdgeInsets.only(top: 35,left: 10),
                  child: Align(
                    alignment: AlignmentDirectional.topStart,
                    child: 
@@ -73,20 +75,28 @@ class _SignInState extends State<LoginScreen> with Helpers {
                       color: Colors.grey.shade300,
                       borderRadius:BorderRadius.circular(60),
                     ),
-                    child:  IconButton(onPressed: (){}, icon:const Icon(Icons.arrow_back,)),
+                    child:  IconButton(onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder:(context) {
+                        return SignWithSocial();
+                      },)
+                      );
+                    }, icon:const Icon(Icons.arrow_back,)),
                   ),
                    ),
                ),
 
             
-             Row(
-             mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-               
-               CustomText(text: 'Welcome', fontSize: 30, fontWeight:FontWeight.bold),
-               
-             ],
+             Padding(
+               padding: const EdgeInsets.only(top:10),
+               child: Row(
+               mainAxisAlignment: MainAxisAlignment.center,
+               children: [
+                 
+                 CustomText(text: 'Welcome', fontSize: 30, fontWeight:FontWeight.bold),
+                 
+               ],
            ),
+             ),
            SizedBox(height: 6,),
             Row(
              mainAxisAlignment: MainAxisAlignment.center,
@@ -177,7 +187,13 @@ class _SignInState extends State<LoginScreen> with Helpers {
                          child: Row(
              children: [
                Spacer(),
-               CustomText(text: 'Forget Password ? ',color: Colors.red, fontSize: 18, fontWeight: FontWeight.normal),
+               InkWell(
+                 onTap: (){
+                   Navigator.push(context,MaterialPageRoute(builder:(context) {
+                     return SendCodeScreen();
+                   },));
+                 },
+                 child: CustomText(text: 'Forget Password ? ',color: Colors.red, fontSize: 18, fontWeight: FontWeight.normal)),
              ],
            ),
                        ),
@@ -237,7 +253,7 @@ class _SignInState extends State<LoginScreen> with Helpers {
                onTap: (){
                  Get.to(FaqsScreen());
                },
-               child: Text(
+               child:Text(
                         ' Term and Condition',
                          textAlign: TextAlign.center,
                         style: TextStyle(
@@ -257,7 +273,6 @@ class _SignInState extends State<LoginScreen> with Helpers {
        ),
             ],
           ),
-
 
           Positioned(
             bottom: 0,

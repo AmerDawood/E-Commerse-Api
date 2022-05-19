@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
+import 'package:softagi_api/screens/Sign_with_social.dart';
 import 'package:softagi_api/screens/auth/login_screen.dart';
 import 'package:softagi_api/utils/helpers.dart';
 
@@ -72,7 +73,8 @@ class _RegisterScreenState extends State<RegisterScreen> with Helpers {
                       borderRadius:BorderRadius.circular(60),
                     ),
                     child:  IconButton(onPressed: (){
-                      Get.to(LoginScreen());
+                      Get.to(SignWithSocial()
+                      );
                     }, icon:const Icon(Icons.arrow_back,)),
                   ),
                    ),

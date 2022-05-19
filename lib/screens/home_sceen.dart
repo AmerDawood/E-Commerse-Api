@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:softagi_api/constanse/const_color.dart';
 import 'package:softagi_api/controller/api/category_api_controller.dart';
 import 'package:softagi_api/controller/api/product_api_controller.dart';
 import 'package:softagi_api/controller/api/profile_api_controller.dart';
@@ -160,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                         width: 50,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 117, 90, 110).withOpacity(0.3),
+                          color: primaryColor,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: IconButton(

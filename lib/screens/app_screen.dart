@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:softagi_api/constanse/const_color.dart';
 import 'package:softagi_api/screens/category_screen.dart';
 import 'package:softagi_api/screens/faviorate_screen.dart';
 import 'package:softagi_api/screens/home_sceen.dart';
@@ -53,24 +54,24 @@ class _AppScreenState extends State<AppScreen> {
 BottomNavigationBarItem(
               label: '',
               icon: SvgPicture.asset('images/Home.svg',color: Colors.grey,height: 15),
-              activeIcon: SvgPicture.asset('images/Home.svg',color: Colors.blue,height: 18,),
+              activeIcon: SvgPicture.asset('images/Home.svg',color: primaryColor,height: 18,),
           ),
            BottomNavigationBarItem(
                label: '',
               icon: SvgPicture.asset('images/Vector.svg',color: Colors.grey,),
-              activeIcon: SvgPicture.asset('images/Vector.svg',color: Colors.blue,),
+              activeIcon: SvgPicture.asset('images/Vector.svg',color:primaryColor),
 
            ),
           
           BottomNavigationBarItem(
               label: '',
               icon: SvgPicture.asset('images/bag.svg',color: Colors.grey,),
-              activeIcon: SvgPicture.asset('images/bag.svg',color: Colors.blue,),
+              activeIcon: SvgPicture.asset('images/bag.svg',color: primaryColor),
           ),
           BottomNavigationBarItem(
               label: '',
               icon: SvgPicture.asset('images/card.svg',color: Colors.grey,),
-              activeIcon: SvgPicture.asset('images/card.svg',color: Colors.blue,),
+              activeIcon: SvgPicture.asset('images/card.svg',color: primaryColor),
           ),
 
         ],

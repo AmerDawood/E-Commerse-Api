@@ -7,7 +7,6 @@ import '../../utils/helpers.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
 
-
 class SendCodeScreen extends StatefulWidget {
   const SendCodeScreen({Key? key}) : super(key: key);
 
@@ -44,7 +43,6 @@ class _SignInState extends State<SendCodeScreen> with Helpers {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(icon: Icon(Icons.arrow_back,) ,onPressed: (){
@@ -57,59 +55,9 @@ class _SignInState extends State<SendCodeScreen> with Helpers {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 50,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomText(
-                text: 'Verify Email ... ',
-                fontSize: 30,
-                fontWeight: FontWeight.w600,
-                // color: Colors.black,
-              ),
-              CustomText(
-                text: 'add your email please',
-                fontSize: 20,
-                fontWeight: FontWeight.normal,
-                // color: Colors.black,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextField(
-                text: 'Email',
-                textEditingController: emailTextController,
-              ),
+            
 
-              SizedBox(height: 10),
-
-              ElevatedButton(
-                onPressed: () async => await performVerify(),
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 53, 88, 139),
-                  fixedSize: Size(400, 60),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  shadowColor: Color.fromARGB(255, 61, 83, 156),
-                ),
-                child: Text(
-                  'Get Started',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-            ],
+            ]
           ),
         ),
       ),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:softagi_api/screens/home_sceen.dart';
 import 'package:softagi_api/utils/helpers.dart';
+import 'package:softagi_api/widgets/custom_button.dart';
 
 import '../controller/api/complaints_api_controller.dart';
 import '../widgets/custom_text.dart';
@@ -41,23 +45,34 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> with Helpers{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(''),
+        
+        backgroundColor:context.theme.primaryColor,
+        
         iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
         elevation: 0,
+      
+         leading: Builder(
+          builder: (context) {
+            return IconButton(
+              icon: Icon(Icons.arrow_back,
+                color: Colors.grey,
+              ),
+              onPressed: (){
+                Get.to(HomeScreen());
+              },
+            );
+          },
+        ),
       ),
-      body:  Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        child: SingleChildScrollView(
-          child:
-           Column(
+      body:  Stack(
+        children: [
+          
+         Padding(
+           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // SizedBox(
-              //   height: 50,
-              // ),
               SizedBox(
                 height: 15,
               ),
@@ -100,33 +115,14 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> with Helpers{
                 text: 'Phone Number',
                 textEditingController: phoneEditingController,
               ),
-              SizedBox(height: 10),
-              
-              ElevatedButton(
-                onPressed: () async => await performRegister(),
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 53, 88, 139),
-                  fixedSize: Size(400, 60),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  shadowColor: Color.fromARGB(255, 61, 83, 156),
-                ),
-                child: Text(
-                  'Add Complaints',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(height: 15),
+        
             ],
-          ),
         ),
+         ),
+        Positioned(
+          bottom: 0,
+          child: CustomButton(text: 'Add Complaints', function: (){})),
+        ],
       ),
 
     );

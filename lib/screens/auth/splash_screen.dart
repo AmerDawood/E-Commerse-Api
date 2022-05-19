@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 class SplashScreen extends StatefulWidget {
@@ -13,11 +14,11 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState() {
+  void initState(){
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 3),(){
-      String routeName =UserPreferenceController().loggedIn?'/app_screen':'/login_screen';
+    Future.delayed(Duration(seconds: 4),(){
+      String routeName =UserPreferenceController().loggedIn?'/app_screen':'/manOrWoman';
       Navigator.pushReplacementNamed(context, routeName);
     });
   }
@@ -26,12 +27,12 @@ class _SplashScreenState extends State<SplashScreen> {
   
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(150, 124, 250, 2000),
+      backgroundColor:Color.fromRGBO(151, 117, 250, 1),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children:[
           Center(
-            child: Text('LAZE',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
+            child:SvgPicture.asset('images/Logo.svg'),
           ),
         ],
       ),

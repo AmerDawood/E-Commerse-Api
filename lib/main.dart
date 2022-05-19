@@ -5,6 +5,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/app_screen.dart';
+import 'package:softagi_api/screens/auth/ManOrWoman.dart';
 import 'package:softagi_api/screens/auth/login_screen.dart';
 import 'package:softagi_api/screens/auth/register_screen.dart';
 import 'package:softagi_api/screens/auth/send_code_screen.dart';
@@ -26,11 +27,7 @@ void main() async {
   runApp( MyApp());
 }
 
-
-
-
 class ThemeFlutter{
-  
   final ThemeData _darkTheme = ThemeData(
     accentColor: Colors.black,
     brightness: Brightness.light,
@@ -66,7 +63,7 @@ class MyApp extends StatelessWidget {
       // themeMode: ThemeMode.system,
     
       
-      initialRoute: '/home_screen',
+      initialRoute: '/splash_screen',
       debugShowCheckedModeBanner: false,
       routes: {
         '/app_screen': (context) => AppScreen(),
@@ -80,12 +77,13 @@ class MyApp extends StatelessWidget {
         '/faqs_screen': (context) => FaqsScreen(),
         '/contact_screen': (context) => ContactScreen(),
         '/send_code': (context) => SendCodeScreen(),
+        '/manOrWoman':(context)=>ManOrWoman(),
       },
     );
   }
 }
 
-class MyHttpOverrides extends HttpOverrides {
+class MyHttpOverrides extends HttpOverrides { 
   @override
   HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)

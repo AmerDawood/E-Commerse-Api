@@ -70,7 +70,7 @@ class _ComplaintsScreenState extends State<UpdateProfile> with Helpers{
       appBar: AppBar(
       
         iconTheme: IconThemeData(color: Colors.black),
-         backgroundColor: context.theme.splashColor,
+         backgroundColor: context.theme.primaryColor,
         elevation: 0,
       ),
       body: 
