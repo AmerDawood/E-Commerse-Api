@@ -5,7 +5,6 @@ import 'package:softagi_api/controller/api/settings_api_controller.dart';
 import 'package:softagi_api/model/settings_model.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
-import '../main.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -49,7 +48,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: Colors.black.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: TextField(
+              child:TextField(
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(

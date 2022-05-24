@@ -5,14 +5,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:softagi_api/controller/api/users_api_controller.dart';
-import 'package:softagi_api/screens/Sign_with_social.dart';
+import 'package:softagi_api/screens/auth/Sign_with_social.dart';
 import 'package:softagi_api/screens/auth/send_code_screen.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 import '../../utils/helpers.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/theme_widget.dart';
-import '../faqs_screen.dart';
+import '../other_screens/faqs_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

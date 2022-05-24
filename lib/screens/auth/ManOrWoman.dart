@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:softagi_api/constanse/const_color.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
-import '../Sign_with_social.dart';
+import 'Sign_with_social.dart';
 
 
 

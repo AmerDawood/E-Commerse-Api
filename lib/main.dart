@@ -11,11 +11,11 @@ import 'package:softagi_api/screens/auth/register_screen.dart';
 import 'package:softagi_api/screens/auth/send_code_screen.dart';
 import 'package:softagi_api/screens/auth/splash_screen.dart';
 import 'package:softagi_api/screens/category_screen.dart';
-import 'package:softagi_api/screens/contact_screen.dart';
-import 'package:softagi_api/screens/faqs_screen.dart';
 import 'package:softagi_api/screens/home_sceen.dart';
+import 'package:softagi_api/screens/other_screens/contact_screen.dart';
+import 'package:softagi_api/screens/other_screens/faqs_screen.dart';
 import 'package:softagi_api/screens/product_screen.dart';
-import 'package:softagi_api/screens/profile_screen.dart';
+import 'package:softagi_api/screens/profile/profile_screen.dart';
 import 'package:softagi_api/widgets/theme_widget.dart';
 
 void main() async {
@@ -60,9 +60,6 @@ class MyApp extends StatelessWidget {
       
  theme: ThemeFlutter()._lightTheme,
       darkTheme: ThemeFlutter()._darkTheme,
-      // themeMode: ThemeMode.system,
-    
-      
       initialRoute: '/splash_screen',
       debugShowCheckedModeBanner: false,
       routes: {
@@ -85,7 +82,7 @@ class MyApp extends StatelessWidget {
 
 class MyHttpOverrides extends HttpOverrides { 
   @override
-  HttpClient createHttpClient(SecurityContext? context) {
+  HttpClient createHttpClient(SecurityContext? context){
     return super.createHttpClient(context)
       ..badCertificateCallback =
           (X509Certificate cert, String host, int port) => true;

@@ -70,7 +70,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     );
                   },);
                      
-                 
                 } else {
                   return Column(
                     children: [

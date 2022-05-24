@@ -11,13 +11,12 @@ import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/auth/login_screen.dart';
 import 'package:softagi_api/screens/change_password.dart';
-import 'package:softagi_api/screens/faqs_screen.dart';
-import 'package:softagi_api/screens/profile_screen.dart';
+import 'package:softagi_api/screens/profile/profile_screen.dart';
 import 'package:softagi_api/utils/helpers.dart';
 import 'package:softagi_api/widgets/theme_widget.dart';
 
-import '../screens/complaints_screen.dart';
-import '../screens/settings_screen.dart';
+import '../screens/other_screens/complaints_screen.dart';
+import '../screens/other_screens/settings_screen.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({
@@ -131,7 +130,7 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
                       return Text('${snapshot.error}');
                     }
                     return const SpinKitRotatingCircle(
-                              color: Colors.blue,
+                               color: primaryColor,
                               size: 50.0,
                             );
                   },

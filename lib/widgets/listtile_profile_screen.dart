@@ -1,45 +1,67 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:softagi_api/constanse/const_color.dart';
 
 
 class ListTileProfileWidget extends StatelessWidget {
-   final String text;
+  //  final String text;
    final Icon icon;
+   final TextEditingController controller;
 
-   ListTileProfileWidget({required this.text,required this.icon});
+
+   ListTileProfileWidget({
+    //  required this.text,
+     required this.icon,
+     required this.controller,
+     });
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-  decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(15),
-    boxShadow: [
-      BoxShadow(color: Colors.blue.withOpacity(0.2), blurRadius: 15),
-    ],
-    border: Border.all(color: Colors.grey.shade500),
-  ),
-  child: ListTile(
-    leading: icon,
-    tileColor: Colors.black.withOpacity(0.5),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(15),
-      side: const BorderSide(
-        color: Colors.black,
-      ),
-    ),
-    title:Text(
-      text,
-      maxLines: 1,
-      style: TextStyle(
-        fontSize: 20,
-        color: Colors.blueAccent,
-      ),
-    ),
-    contentPadding:
-    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-  ),
-);
+    return 
+     Container(
+      //  height: 70,
+       
+                      decoration: BoxDecoration(
+                        // color: Colors.white,
+                        color: context.theme.splashColor,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: TextField(
+                          controller: controller,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 0,
+                                color: Colors.black.withOpacity(0.1),
+                              ),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            // hintText: ,
+                            iconColor: Colors.black,
+                            prefixIcon:IconButton(
+                              onPressed: (){},
+                          icon:icon,
+                            ),
+                            suffix: Icon(Icons.edit,color: Colors.grey,),
+                            
+                            labelStyle: TextStyle(
+                              fontSize: 20,
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 0,
+                                color: Colors.white,
+                              ),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
   }
 }

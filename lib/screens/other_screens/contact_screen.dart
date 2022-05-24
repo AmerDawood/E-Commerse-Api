@@ -68,7 +68,7 @@ class _ContactScreenState extends State<ContactScreen> {
               child: IconButton(
                     icon: Icon(Icons.arrow_back,color: Colors.black,size: 30,),
                   onPressed: (){
-                    Navigator.pushNamed(context, '/app_screen');
+                    Navigator.pushNamed(context, '/home_screen');
                   },
                    ),
             ),

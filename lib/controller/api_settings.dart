@@ -24,6 +24,10 @@ class ApiSettings{
    static const productsSearch = _API_URL+'products/search';
    static const ChangePassword =_API_URL+'change-password';
 
+   static const Favorites= _API_URL+'favorites';
+  static const CARTS= _API_URL+'carts';
+
+
 
 
 

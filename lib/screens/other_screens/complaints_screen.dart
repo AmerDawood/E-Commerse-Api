@@ -5,9 +5,9 @@ import 'package:softagi_api/screens/home_sceen.dart';
 import 'package:softagi_api/utils/helpers.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 
-import '../controller/api/complaints_api_controller.dart';
-import '../widgets/custom_text.dart';
-import '../widgets/custom_text_field.dart';
+import '../../controller/api/complaints_api_controller.dart';
+import '../../widgets/custom_text.dart';
+import '../../widgets/custom_text_field.dart';
 
 
 class ComplaintsScreen extends StatefulWidget {
@@ -121,14 +121,14 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> with Helpers{
          ),
         Positioned(
           bottom: 0,
-          child: CustomButton(text: 'Add Complaints', function: (){})),
+          child: CustomButton(text: 'Add Complaints', function: ()async => await performAddComplaints())),
         ],
       ),
 
     );
   }
 
-  Future<void> performRegister() async{
+  Future<void> performAddComplaints() async{
    if(checkData()){
     await register();
    } 

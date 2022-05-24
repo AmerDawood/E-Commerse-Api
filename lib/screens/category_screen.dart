@@ -27,6 +27,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         // backgroundColor: Colors.grey.shade100,
+        
     appBar: AppBar(
         backgroundColor: context.theme.backgroundColor,
         elevation: 0,
@@ -103,7 +104,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
           ),
           SizedBox(
             height: 600,
-            child: FutureBuilder<List<Category>>(
+            child:
+            
+             FutureBuilder<List<Category>>(
               future: _future,
 
               builder: (context, snapshot) {
@@ -122,6 +125,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   crossAxisSpacing: 5,
                   mainAxisSpacing: 5,
                 ),
+
                        itemCount: _categories.length,
                 itemBuilder: (BuildContext ctx, index) {
                   return InkWell(
@@ -197,9 +201,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
               },
            
             ),
+         
           ),
         ],
       ),
+   
     );
   }
 }

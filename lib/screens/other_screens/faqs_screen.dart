@@ -26,7 +26,7 @@ class _FaqsScreenState extends State<FaqsScreen> {
     return Scaffold(
       // backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: context.theme.backgroundColor,
+        backgroundColor: context.theme.primaryColor,
         elevation: 0,
         title: Text('FAQS Questions',style: TextStyle(
           color: Colors.black,

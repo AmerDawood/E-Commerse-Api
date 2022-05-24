@@ -7,9 +7,11 @@ import 'package:softagi_api/screens/card_screen.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
+import '../controller/api/favorites_api_controller.dart';
+
 class ProductDetailsScreen extends StatefulWidget {
  final Product _product;
- ProductDetailsScreen(this._product);
+ ProductDetailsScreen(this._product,);
 
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
@@ -56,7 +58,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         icon:SvgPicture.asset('images/bag.svg',color: Colors.black,),
                         iconSize: 30.0,
                         onPressed: (){
-                          Get.to(CardScreen());
+                          Get.to(CartScreen());
                         },
                       )
                     ],
@@ -176,26 +178,36 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    height: 60.0,
-                    width: 220.0,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.blue.shade200,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            offset: Offset(0, 2),
-                            blurRadius: 20.0,
-                          )
-                        ]),
-                    child: Center(
-                      child: Text(
-                        'Buy Now',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 20.0,
+                  GestureDetector(
+                  onTap: ()async { await
+            FavoritesApiController().addToCarts(
+            context: context,
+            id:widget._product.id.toString(),
+
+            );
+            // print(widget._product.id);
+            },
+                    child: Container(
+                      height: 60.0,
+                      width: 220.0,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.blue.shade200,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(0, 2),
+                              blurRadius: 20.0,
+                            )
+                          ]),
+                      child: Center(
+                        child: Text(
+                          'Buy Now',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 20.0,
+                          ),
                         ),
                       ),
                     ),
@@ -214,11 +226,26 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           )
                         ]),
                     child: Center(
-                        child: Icon(
+                        child: IconButton(
+                          onPressed: ()async { await 
+                          FavoritesApiController().addFavorites(
+                            context: context, 
+                          id:widget._product.id.toString(),
+                          
+                          );
+                          print(widget._product.id);
+                          }
+,                          icon: Icon(
                       Icons.favorite_border,
                       color: Colors.white,
                       size: 30.0,
-                    )),
+                    ),
+                        ),
+                        
+                    ),
+                    
+                        
+
                   ),
                 ],
               ),
@@ -228,4 +255,5 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       ),
     );
   }
+
 }

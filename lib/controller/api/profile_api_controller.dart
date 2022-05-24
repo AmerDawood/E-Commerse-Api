@@ -20,7 +20,6 @@ class ProfileApiController with Helpers {
         HttpHeaders.acceptHeader: 'application/json',
       },
     );
-
     var decoded = json.decode(response.body);
     // print(decoded['message']);
 

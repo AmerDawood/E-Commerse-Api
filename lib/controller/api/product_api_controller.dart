@@ -17,6 +17,7 @@ class ProductApiController{
 
 
 var decoded = json.decode(response.body);
+// print(decoded['data']['data']);
     
     if(response.statusCode==200){
        return (decoded['data']['data'] as List)

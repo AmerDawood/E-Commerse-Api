@@ -50,7 +50,6 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
-     
         backgroundColor:context.theme.primaryColor,
         
         iconTheme: IconThemeData(color: Colors.black),
@@ -84,6 +83,8 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
+
                 Align(
                   alignment: AlignmentDirectional.topStart,
                   child:FutureBuilder<UserData>(
@@ -117,6 +118,8 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                 ),
                 Row(
                   children: [
+
+                    
                     Expanded(
                       flex: 3,
                       child: Container(
@@ -155,6 +158,8 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                         ),
                       ),
                     ),
+                  
+                  
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
@@ -202,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return const Center(
                           child: SpinKitRotatingCircle(
-                            color: Colors.blue,
+                            color: primaryColor,
                             size: 50.0,
                           ),
                         );
@@ -317,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(
                         child: SpinKitRotatingCircle(
-                          color: Colors.blue,
+                           color: primaryColor,
                           size: 50.0,
                         ),
                       );

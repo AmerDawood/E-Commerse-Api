@@ -2,11 +2,13 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:softagi_api/controller/api/product_api_controller.dart';
 import 'package:softagi_api/screens/details_products_screen.dart';
+import '../constanse/const_color.dart';
 import '../controller/api_settings.dart';
 import '../model/product_model.dart';
 import '../widgets/custom_text.dart';
@@ -45,6 +47,10 @@ class JobsState extends State<ProductsScreen> {
     return parsed.map<Product>((json) => Product.fromJson(json)).toList();
   }
 
+  
+    List<Product> _cart = <Product>[];
+    late Future<List<Product>> _future;
+  
   @override
   void initState() {
     super.initState();
@@ -54,13 +60,15 @@ class JobsState extends State<ProductsScreen> {
         productList = prolist;
       });
     });
+      _future = ProductApiController().getProducts();
+
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey.shade100,
+
       appBar: AppBar(
-        backgroundColor: context.theme.backgroundColor,
+        backgroundColor: context.theme.primaryColor,
         elevation: 0,
         title: Text(
           'Products',
@@ -119,7 +127,25 @@ class JobsState extends State<ProductsScreen> {
           ),
            SizedBox(
              height: 633,
-             child: Padding(
+             child:
+             
+             
+                 FutureBuilder<List<Product>>(
+                  future: _future,
+
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: SpinKitRotatingCircle(
+                           color: primaryColor,
+                          size: 50.0,
+                        ),
+                      );
+                    } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                      _cart = snapshot.data ?? [];
+
+                      return 
+              Padding(
                padding: const EdgeInsets.all(10.0),
                child: GridView.builder(
                       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -214,7 +240,33 @@ class JobsState extends State<ProductsScreen> {
                       
                       
                       ),
-             ),
+             );
+         
+         
+                    } else {
+                      return Column(
+                        children: [
+                          Icon(
+                            Icons.warning,
+                            size: 80,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            'No Data',
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      );
+                    }
+                  },
+
+                ),
+            
            ),
 
 
@@ -222,6 +274,7 @@ class JobsState extends State<ProductsScreen> {
      
         ],
       ),
+  
     );
   }
 }

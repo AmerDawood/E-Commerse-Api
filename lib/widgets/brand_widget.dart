@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:softagi_api/constanse/const_color.dart';
 
 class BrandWidget extends StatelessWidget {
   final String text;
@@ -18,7 +19,7 @@ class BrandWidget extends StatelessWidget {
                           color: Colors.black.withOpacity(0.1),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.blue.withOpacity(0.1),
+                              color: primaryColor.withOpacity(0.1),
                               spreadRadius: 2,
                               blurRadius: 4,
                               offset:
