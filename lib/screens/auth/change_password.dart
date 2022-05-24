@@ -4,10 +4,10 @@ import 'package:softagi_api/screens/home_sceen.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
-import '../controller/api/profile_api_controller.dart';
-import '../widgets/custom_text_field.dart';
-import 'auth/Sign_with_social.dart';
-import 'other_screens/faqs_screen.dart';
+import '../../controller/api/profile_api_controller.dart';
+import '../../widgets/custom_text_field.dart';
+import 'Sign_with_social.dart';
+import '../other_screens/faqs_screen.dart';
 
 
 class ChangePassword extends StatefulWidget {
@@ -222,8 +222,10 @@ class _ChangePasswordState extends State<ChangePassword> {
           Positioned(
             bottom: 0,
             child:CustomButton(
-              text: 'Login', 
+              text: 'Change Password', 
             function: ()=>performChangePassword(),
+
+            
             ),
           ),
 
@@ -246,7 +248,6 @@ class _ChangePasswordState extends State<ChangePassword> {
 current_password: currentPasswordEditingController.text,
 new_password: newPasswordEditingController.text,
       context: context,
-      
     );
   }
 }

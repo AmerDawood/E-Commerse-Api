@@ -10,7 +10,7 @@ import 'package:softagi_api/main.dart';
 import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/auth/login_screen.dart';
-import 'package:softagi_api/screens/change_password.dart';
+import 'package:softagi_api/screens/auth/change_password.dart';
 import 'package:softagi_api/screens/profile/profile_screen.dart';
 import 'package:softagi_api/utils/helpers.dart';
 import 'package:softagi_api/widgets/theme_widget.dart';

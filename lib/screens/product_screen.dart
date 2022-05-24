@@ -72,7 +72,7 @@ class JobsState extends State<ProductsScreen> {
         elevation: 0,
         title: Text(
           'Products',
-          style: TextStyle(color: Colors.black, fontSize: 25),
+          style: TextStyle(fontSize: 25),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -81,7 +81,7 @@ class JobsState extends State<ProductsScreen> {
             },
             icon: Icon(
               Icons.arrow_back,
-              color: Colors.black,
+              // color: Colors.black,
             )),
       ),
       body: ListView(
@@ -137,6 +137,7 @@ class JobsState extends State<ProductsScreen> {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(
                         child: SpinKitRotatingCircle(
+                        
                            color: primaryColor,
                           size: 50.0,
                         ),

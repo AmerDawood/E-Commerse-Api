@@ -78,7 +78,12 @@ class ProfileApiController with Helpers {
 
    Future<bool> changePassword({required BuildContext context,required String current_password , required String new_password})async{
  var url = Uri.parse(ApiSettings.ChangePassword);
-    var response = await http.post(url, body: {
+    var response = await http.post(url,
+    headers: {
+        HttpHeaders.authorizationHeader: UserPreferenceController().token,
+        HttpHeaders.acceptHeader: 'application/json',
+    },
+     body: {
       'current_password': current_password,
       'new_password':new_password,
     }
