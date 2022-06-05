@@ -1,12 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:softagi_api/constanse/const_color.dart';
-import 'package:softagi_api/controller/api/favorites_api_controller.dart';
 import 'package:softagi_api/model/favorite_model.dart';
 import 'package:softagi_api/screens/details_products_screen.dart';
 
+import '../network/api/favorites_api_controller.dart';
 import '../widgets/custom_text.dart';
 
 class FaviorateScreen extends StatefulWidget {
@@ -94,7 +95,13 @@ class _FaviorateScreenState extends State<FaviorateScreen> {
                                      ),
                                    ),
                                    trailing: IconButton(
-                                     onPressed: (){},
+                                     onPressed: ()async{
+                                       await   FavoritesApiController().addFavorites(
+                                         context: context,
+                                         id:_favorite[index].product!.id.toString(),
+
+                                       );
+                                     },
                                      icon: Icon(Icons.favorite,color: primaryColor,),
                                    )
                                ),
@@ -112,26 +119,27 @@ class _FaviorateScreenState extends State<FaviorateScreen> {
 
 
                   );
-
-
                   } else {
-                    return Column(
-                      children: [
-                        Icon(
-                          Icons.warning,
-                          size: 80,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'No Data',
-                          style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.grey,
+                    return Center(
+                      child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.warning,
+                            size: 80,
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            'No Data',
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
                     );
                   }
                 },

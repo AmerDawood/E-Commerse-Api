@@ -7,11 +7,13 @@ import 'package:softagi_api/screens/card_screen.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
-import '../controller/api/favorites_api_controller.dart';
+import '../network/api/favorites_api_controller.dart';
+
 
 class ProductDetailsScreen extends StatefulWidget {
  final Product _product;
  ProductDetailsScreen(this._product,);
+
 
 
   @override
@@ -20,8 +22,19 @@ class ProductDetailsScreen extends StatefulWidget {
 }
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
- late bool in_favorites =false;
+late bool inFavorites = widget._product.inFavorites;
 
+//
+
+  void _toggleFavorite(){
+    setState(() {
+      if(inFavorites){
+        inFavorites =false;
+      }else{
+        inFavorites =true;
+      }
+    });
+  }
 
 
   CarouselController buttonCarouselController = CarouselController();
@@ -32,6 +45,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
           Stack(
             children: [
               Container(
@@ -229,18 +243,25 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                        
                       
                       IconButton(
-                        
-                        onPressed: ()async {
-                           await 
-                        FavoritesApiController().addFavorites(
-                          context: context, 
-                        id:widget._product.id.toString(),
-                        
-                        );
+
+                        onPressed: ()async{
+                          await
+                          FavoritesApiController().addFavorites(
+                            context: context,
+                            id:widget._product.id.toString(),
+
+                          );
+                        // setState(() {
+                        //   inFavorites==widget._product.inFavorites;
+                        // });
+                          _toggleFavorite();
                         },
-                        icon: Icon(Icons.g_mobiledata),
-                         
-                      )
+
+                        icon: Icon(Icons.favorite,
+                          color:inFavorites?Colors.red:Colors.white,
+                         ),
+
+                      ),
                       ),
                  
                       

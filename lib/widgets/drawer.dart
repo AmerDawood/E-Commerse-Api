@@ -5,7 +5,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:softagi_api/constanse/const_color.dart';
-import 'package:softagi_api/controller/api/profile_api_controller.dart';
 import 'package:softagi_api/main.dart';
 import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
@@ -15,6 +14,7 @@ import 'package:softagi_api/screens/profile/profile_screen.dart';
 import 'package:softagi_api/utils/helpers.dart';
 import 'package:softagi_api/widgets/theme_widget.dart';
 
+import '../network/api/profile_api_controller.dart';
 import '../screens/other_screens/complaints_screen.dart';
 import '../screens/other_screens/settings_screen.dart';
 
@@ -187,11 +187,7 @@ class _MyDrawerState extends State<MyDrawer> with Helpers {
 
                          InkWell(
                            onTap: (){
-                               Navigator.push(context, MaterialPageRoute(
-                        builder:(context) {
-                        return LoginScreen();
-                      },));
-                   
+                         logout();
                            },
                            child: ListTile(
                                                leading: IconButton(

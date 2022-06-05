@@ -7,7 +7,7 @@ class Product {
   String? name;
   String? description;
   List<String>? images;
-  bool? inFavorites;
+ late  bool inFavorites;
   bool? inCart;
   Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];

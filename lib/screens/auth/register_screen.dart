@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:softagi_api/controller/api/users_api_controller.dart';
 import 'package:softagi_api/screens/auth/Sign_with_social.dart';
 import 'package:softagi_api/screens/auth/login_screen.dart';
 import 'package:softagi_api/utils/helpers.dart';
 
+import '../../network/api/users_api_controller.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
@@ -53,18 +53,18 @@ class _RegisterScreenState extends State<RegisterScreen> with Helpers {
      
       body: 
  
-       Stack(
+       Column(
 
          children:[
 
            Column(
              children: [
-               
+
                Padding(
                  padding: const EdgeInsets.only(top: 30,left: 10),
                  child: Align(
                    alignment: AlignmentDirectional.topStart,
-                   child: 
+                   child:
                   Container(
                     height: 40,
                     width: 40,
@@ -80,159 +80,159 @@ class _RegisterScreenState extends State<RegisterScreen> with Helpers {
                    ),
                ),
 
-            
+
              Row(
              mainAxisAlignment: MainAxisAlignment.center,
              children: [
-               
+
                CustomText(text: 'Sign Up', fontSize: 30, fontWeight:FontWeight.bold),
-               
-             ],
-           ),
-        
+
              ],
            ),
 
-          
+             ],
+           ),
+
+
          Center(
            child: Column(
              mainAxisAlignment: MainAxisAlignment.center,
              children:[
-            
+
                   Padding(
                     padding: const EdgeInsets.only(left: 15,right: 10),
                     child: TextFormField(
                       controller: nameEditingController,
                       decoration: const InputDecoration(
-                        
-                        
+
+
                         labelText: 'Name',
                         labelStyle: TextStyle(
                           color: Colors.grey,
                           fontSize: 23,
                         ),
-                        
+
                         enabledBorder: UnderlineInputBorder(
                          borderSide: BorderSide(color: Colors.grey),
-                          
+
                         ),
-         
+
          focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
-                    
+
          ),
-         
-                        
+
+
                       ),
-                      
-                      
+
+
                     ),
                   ),
-        SizedBox(
+               SizedBox(
                               height:20,
                             ),
-       
-       
+
+
                         Padding(
                     padding: const EdgeInsets.only(left: 15,right: 15,bottom: 4),
                           child: TextFormField(
                             controller: emailEditingController,
                             decoration: const InputDecoration(
-                              
-                              
+
+
                               labelText: 'Email',
                               labelStyle: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 23,
                               ),
-                              
+
                               enabledBorder: UnderlineInputBorder(
                                borderSide: BorderSide(color: Colors.grey),
-                                
+
                               ),
-         
+
          focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey),
-                  
+
          ),
-         
-                              
+
+
                             ),
-                            
-                            
+
+
                           ),
                         ),
 
-SizedBox(
+              SizedBox(
                               height:20,
                             ),
-       
-       
+
+
                         Padding(
                     padding: const EdgeInsets.only(left: 15,right: 15,bottom:4),
                           child: TextFormField(
                             controller: passwordEditingController,
                             decoration: const InputDecoration(
-                              
-                              
+
+
                               labelText: 'Password',
                               labelStyle: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 23,
                               ),
-                              
+
                               enabledBorder: UnderlineInputBorder(
                                borderSide: BorderSide(color: Colors.grey),
-                                
+
                               ),
-         
+
          focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey),
-                  
+
          ),
-         
-                              
+
+
                             ),
-                            
-                            
+
+
                           ),
                         ),
                         SizedBox(
                               height:20,
                             ),
-       
-       
+
+
                         Padding(
                     padding: const EdgeInsets.only(left: 15,right: 15,bottom: 4),
                           child: TextFormField(
                             controller: phoneEditingController,
                             decoration: const InputDecoration(
-                              
-                              
+
+
                               labelText: 'Phone',
                               labelStyle: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 23,
                               ),
-                              
+
                               enabledBorder: UnderlineInputBorder(
                                borderSide: BorderSide(color: Colors.grey),
-                                
+
                               ),
-         
+
          focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey),
-                  
+
          ),
-         
-                              
+
+
                             ),
-                            
-                            
+
+
                           ),
                         ),
 
-          
+
 
            Padding(
              padding: const EdgeInsets.only(top: 10,left: 20,right:15),
@@ -246,28 +246,28 @@ SizedBox(
            ),
 
 
-        
-       
-            
+
+
+
              ],
            ),
          ),
-          
 
 
-       
+
+      //  Spacer(),
           Positioned(
             bottom: 0,
             child: CustomButton(
-              text: 'Sign Up', 
+              text: 'Sign Up',
             function: ()=>performRegister(),
             ),
           ),
 
 
-     
+
          ]
-        
+
        ),
   
     );

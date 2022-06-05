@@ -4,7 +4,7 @@ import 'package:softagi_api/screens/home_sceen.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
-import '../../controller/api/profile_api_controller.dart';
+import '../../network/api/profile_api_controller.dart';
 import '../../widgets/custom_text_field.dart';
 import 'Sign_with_social.dart';
 import '../other_screens/faqs_screen.dart';

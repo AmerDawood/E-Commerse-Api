@@ -4,12 +4,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:softagi_api/constanse/const_color.dart';
-import 'package:softagi_api/controller/api/profile_api_controller.dart';
 import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/screens/app_screen.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
+import '../../network/api/profile_api_controller.dart';
 import '../../utils/helpers.dart';
 import '../../widgets/listtile_profile_screen.dart';
 class ProfileScreen extends StatefulWidget {
@@ -72,9 +72,10 @@ class _ProfileScreenState extends State<ProfileScreen> with Helpers {
         toolbarHeight: 60,
         backgroundColor: context.theme.primaryColor,
         elevation: 0,
-        title: Text('Your Profile',style: TextStyle(color:primaryColor,fontSize: 25,fontWeight: FontWeight.w400),),
+        title: Text('Your Profile',style: TextStyle(
+            fontSize: 25,fontWeight: FontWeight.w400),),
         centerTitle: true,
-        leading: IconButton(icon: Icon(Icons.arrow_back,color: Colors.black,),onPressed: (){
+        leading: IconButton(icon: Icon(Icons.arrow_back,),onPressed: (){
 
           Navigator.push(context, MaterialPageRoute(builder:(context) {
             return AppScreen();

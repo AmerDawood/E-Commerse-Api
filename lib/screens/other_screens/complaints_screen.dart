@@ -5,7 +5,7 @@ import 'package:softagi_api/screens/home_sceen.dart';
 import 'package:softagi_api/utils/helpers.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 
-import '../../controller/api/complaints_api_controller.dart';
+import '../../network/api/complaints_api_controller.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
 
@@ -48,26 +48,16 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> with Helpers{
       appBar: AppBar(
         
         backgroundColor:context.theme.primaryColor,
-        
-        iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
-      
-         leading: Builder(
-          builder: (context) {
-            return IconButton(
-              icon: Icon(Icons.arrow_back,
-                color: Colors.grey,
-              ),
-              onPressed: (){
-                Get.to(HomeScreen());
-              },
-            );
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pushReplacementNamed(context, '/app_screen');
           },
+          icon: Icon(Icons.arrow_back),
         ),
       ),
-      body:  Stack(
-        children: [
-          
+      body:Stack(
+        children:[
          Padding(
            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
            child: Column(

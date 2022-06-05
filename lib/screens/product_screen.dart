@@ -6,11 +6,10 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:softagi_api/controller/api/product_api_controller.dart';
 import 'package:softagi_api/screens/details_products_screen.dart';
 import '../constanse/const_color.dart';
-import '../controller/api_settings.dart';
 import '../model/product_model.dart';
+import '../network/api/product_api_controller.dart';
 import '../widgets/custom_text.dart';
 
 class ProductsScreen extends StatefulWidget {
@@ -68,21 +67,20 @@ class JobsState extends State<ProductsScreen> {
     return Scaffold(
 
       appBar: AppBar(
-        backgroundColor: context.theme.primaryColor,
-        elevation: 0,
-        title: Text(
-          'Products',
-          style: TextStyle(fontSize: 25),
-        ),
+          backgroundColor: context.theme.primaryColor,
+          elevation: 0,
+          title: Text(
+            'Products',
+
+            style: TextStyle(color: Colors.black,fontSize: 25),
+          ),
         centerTitle: true,
         leading: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/app_screen');
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              // color: Colors.black,
-            )),
+          onPressed: (){
+            Navigator.pushReplacementNamed(context, '/app_screen');
+          },
+          icon: Icon(Icons.arrow_back,color: Colors.black),
+        ),
       ),
       body: ListView(
         children: <Widget>[
@@ -128,8 +126,6 @@ class JobsState extends State<ProductsScreen> {
            SizedBox(
              height: 633,
              child:
-             
-             
                  FutureBuilder<List<Product>>(
                   future: _future,
 

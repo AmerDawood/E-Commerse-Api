@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:softagi_api/controller/api/users_api_controller.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({ Key? key }) : super(key: key);

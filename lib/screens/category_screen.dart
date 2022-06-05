@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:softagi_api/controller/api/category_api_controller.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
 import '../model/category_model.dart';
+import '../network/api/category_api_controller.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({Key? key}) : super(key: key);

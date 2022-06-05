@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:softagi_api/controller/api/contact_api_controller.dart';
 import 'package:softagi_api/model/contact_model.dart';
+
+import '../../network/api/contact_api_controller.dart';
 
 class ContactScreen extends StatefulWidget {
   const ContactScreen({Key? key}) : super(key: key);

@@ -3,11 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'package:softagi_api/controller/api_settings.dart';
 import 'package:softagi_api/prefs/user_pref_controller.dart';
 import 'package:softagi_api/utils/helpers.dart';
 
 import '../../model/profile_model.dart';
+import '../api_settings.dart';
 
 class ProfileApiController with Helpers {
   Future<UserData> getUserData() async {

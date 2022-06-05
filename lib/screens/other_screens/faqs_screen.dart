@@ -1,8 +1,9 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:softagi_api/controller/api/faqs_api_controller.dart';
 import 'package:softagi_api/model/faqs_model.dart';
+
+import '../../network/api/faqs_api_controller.dart';
 
 class FaqsScreen extends StatefulWidget {
   const FaqsScreen({Key? key}) : super(key: key);

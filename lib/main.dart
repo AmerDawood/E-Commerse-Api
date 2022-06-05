@@ -36,7 +36,8 @@ class ThemeFlutter{
       buttonColor: Colors.amber,
       disabledColor: Colors.white,
       splashColor: Colors.white,
-    ));
+    )
+    );
 
 final ThemeData _lightTheme = ThemeData(
     accentColor: Colors.grey,

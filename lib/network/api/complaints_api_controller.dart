@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:softagi_api/controller/api_settings.dart';
 import 'package:softagi_api/model/complaints_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:softagi_api/utils/helpers.dart';
+
+import '../api_settings.dart';
 
 class ComplaintsApiController with Helpers{
 

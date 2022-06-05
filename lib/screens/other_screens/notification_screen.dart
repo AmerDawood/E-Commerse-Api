@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:softagi_api/controller/api/notification_api_coontroller.dart';
 import 'package:softagi_api/model/notification_model.dart';
+
+import '../../network/api/notification_api_coontroller.dart';
 
 
 class NotificationsScreen extends StatefulWidget {

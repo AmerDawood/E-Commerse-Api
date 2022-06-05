@@ -3,28 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-ThemeData _darkTheme = ThemeData(
-    accentColor: Colors.red,
-    brightness: Brightness.dark,
-    primaryColor: Colors.amber,
-    appBarTheme: AppBarTheme(color: Colors.green),
+// ThemeData _darkTheme = ThemeData(
+//     accentColor: Colors.red,
+//     brightness: Brightness.dark,
+//     primaryColor: Colors.amber,
+//     appBarTheme: AppBarTheme(color: Colors.green),
 
-    buttonTheme: ButtonThemeData(
-      buttonColor: Colors.amber,
-      disabledColor: Colors.white,
-      splashColor: Colors.white,
+//     buttonTheme: ButtonThemeData(
+//       buttonColor: Colors.amber,
+//       disabledColor: Colors.white,
+//       splashColor: Colors.white,
 
-    ));
+//     ));
 
-ThemeData _lightTheme = ThemeData(
-    accentColor: Colors.pink,
-    brightness: Brightness.light,
-    primaryColor: Colors.blue,
-    buttonTheme: ButtonThemeData(
-      buttonColor: Colors.blue,
-      disabledColor: Colors.white,
-      splashColor: Colors.white,
-    ));
+// ThemeData _lightTheme = ThemeData(
+//     accentColor: Colors.pink,
+//     brightness: Brightness.light,
+//     primaryColor: Colors.blue,
+//     buttonTheme: ButtonThemeData(
+//       buttonColor: Colors.blue,
+//       disabledColor: Colors.white,
+//       splashColor: Colors.white,
+//     ));
 
 class SwitchButtonFlutter extends StatelessWidget {
   RxBool _isLightTheme = false.obs;

@@ -3,9 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:softagi_api/constanse/const_color.dart';
-import 'package:softagi_api/controller/api/category_api_controller.dart';
-import 'package:softagi_api/controller/api/product_api_controller.dart';
-import 'package:softagi_api/controller/api/profile_api_controller.dart';
+
 import 'package:softagi_api/model/category_model.dart';
 import 'package:softagi_api/model/profile_model.dart';
 import 'package:softagi_api/model/users_model.dart';
@@ -17,6 +15,9 @@ import 'package:softagi_api/widgets/custom_text.dart';
 import 'package:softagi_api/widgets/drawer.dart';
 
 import '../model/product_model.dart';
+import '../network/api/category_api_controller.dart';
+import '../network/api/product_api_controller.dart';
+import '../network/api/profile_api_controller.dart';
 import '../widgets/category_in_home.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -47,10 +48,13 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
+      // backgroundColor: Colors.white,
       drawer: MyDrawer(),
+      
       appBar: AppBar(
-        backgroundColor:context.theme.primaryColor,
+        backgroundColor: context.theme.primaryColor,
         
         iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
@@ -75,6 +79,8 @@ class _HomeScreenState extends State<HomeScreen> with Helpers {
           },
         ),
       ),
+    
+    
       body: Padding(
         padding: const EdgeInsets.only(left: 25, right: 25),
         child: SingleChildScrollView(

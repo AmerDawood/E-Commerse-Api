@@ -2,10 +2,10 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:softagi_api/controller/api/settings_api_controller.dart';
 import 'package:softagi_api/model/settings_model.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
+import '../../network/api/settings_api_controller.dart';
 import '../../widgets/setting_widget.dart';
 import '../../widgets/theme_widget.dart';
 
@@ -35,22 +35,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
         // backgroundColor: Colors.white,
         backgroundColor: context.theme.primaryColor,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+
         title: Text(
           'Settings',
-          // style: TextStyle(color: Colors.black),
+            style: TextStyle(
+        fontSize: 25,fontWeight: FontWeight.w400),
+        ),
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pushReplacementNamed(context, '/app_screen');
+          },
+          icon: Icon(Icons.arrow_back),
         ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-            padding:const EdgeInsets.only(left: 20, right: 20, top: 20),
-              child: ListTile(
-                title: Text('Change Theme'),
-                trailing: SwitchButtonFlutter(),
-              ),
+            ListTile(
+              title: Text('Change Theme'),
+              trailing: SwitchButtonFlutter(),
             ),
 
 

@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:softagi_api/controller/api_settings.dart';
 import 'package:softagi_api/model/banners_model.dart';
 import 'package:http/http.dart' as http;
+
+import '../api_settings.dart';
 class BannerApiController{
 
      Future<List<Banners>> getBanners()async{
