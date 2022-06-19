@@ -2,24 +2,24 @@
 
 
 ### Features :
-Sign-In, Sign-Up and LogOut using Email & Password
+- Sign-In, Sign-Up and LogOut using Email & Password
 
-profile screen  / Update Profile
+- profile screen  / Update Profile
 
-Settings Screen 
+- Settings Screen /Faqs Screen /Complaints Screen  / Contact Screen 
 
-Using Dark Theme & Light Theme
+- Using Dark Theme & Light Theme
 
-Add/Remove Products to/from Cart.
+- Add/Remove Products to/from Cart.
 
-Change quantity of products in the cart.
+- Change quantity of products in the cart.
 
-Check out your Cart and Make an Order.
+- Check out your Cart and Make an Order.
 
-Check your recent orders at Order History.
+- Check your recent orders at Order History.
 
-Using Responsive UI.
+- Using Responsive UI.
 
-Using Api & shared preference.
+- Using Api & shared preference.
 
-Using GetX as state management.
+- Using GetX as state management.
