@@ -162,7 +162,7 @@ class _ManOrWomanState extends State<ManOrWoman> with SingleTickerProviderStateM
 
           
              Padding(
-               padding: const EdgeInsets.only(top:6),
+               padding: const EdgeInsets.only(top:0),
                child: TextButton(
                  onPressed: (){
                    Navigator.push(context,MaterialPageRoute(builder:(context) {

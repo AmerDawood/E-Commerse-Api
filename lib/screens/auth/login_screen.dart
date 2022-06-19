@@ -52,7 +52,6 @@ class _SignInState extends State<LoginScreen> with Helpers {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Color.fromRGBO(229, 229, 229, 1),
       extendBodyBehindAppBar: true,
       body:
       
@@ -64,7 +63,7 @@ class _SignInState extends State<LoginScreen> with Helpers {
              children: [
                
                Padding(
-                 padding: const EdgeInsets.only(top: 35,left: 10),
+                 padding: const EdgeInsets.only(top: 45,left: 10),
                  child: Align(
                    alignment: AlignmentDirectional.topStart,
                    child: 
@@ -118,70 +117,23 @@ class _SignInState extends State<LoginScreen> with Helpers {
            child: Column(
              mainAxisAlignment: MainAxisAlignment.center,
              children:[
-            
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15,right: 15),
-                    child: TextFormField(
-                      controller: emailTextController,
-                      decoration: const InputDecoration(
-                        
-                        
-                        labelText: 'Email',
-                        labelStyle: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 23,
-                        ),
-                        
-                        enabledBorder: UnderlineInputBorder(
-                         borderSide: BorderSide(color: Colors.grey),
-                          
-                        ),
-         
-         focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                    
-         ),
-         
-                        
-                      ),
-                      
-                      
-                    ),
-                  ),
+
+               Padding(
+                            padding: const EdgeInsets.only(left: 15,right: 15),
+                 child: CustomTextField(textEditingController: emailTextController,text: 'Email',),
+               ),
         SizedBox(
                               height:20,
                             ),
-       
-       
-                        Padding(
-                    padding: const EdgeInsets.only(left: 15,right: 15,bottom: 15),
-                          child: TextFormField(
-                            controller: passwordTextController,
-                            decoration: const InputDecoration(
-                              
-                              
-                              labelText: 'Password',
-                              labelStyle: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 23,
-                              ),
-                              
-                              enabledBorder: UnderlineInputBorder(
-                               borderSide: BorderSide(color: Colors.grey),
-                                
-                              ),
-         
-         focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
-                  
-         ),
-         
-                              
-                            ),
-                            
-                            
-                          ),
-                        ),
+
+               Padding(
+                            padding: const EdgeInsets.only(left: 15,right: 15),
+                 child: CustomTextField(textEditingController: passwordTextController,text: 'Password',),
+               ),
+
+                SizedBox(height: 10,),
+
+
                        Padding(
                          padding: const EdgeInsets.only(right:10),
                          child: Row(
@@ -205,20 +157,14 @@ class _SignInState extends State<LoginScreen> with Helpers {
                children: [
                  CustomText(text: 'Remember me ', fontSize:18, fontWeight:FontWeight.normal),
                  Spacer(),
-                //  SwitchButtonFlutter(),
+                 SwitchButtonFlutter(),
                ],
              ),
            ),
 
-
-        
-       
-            
              ],
            ),
          ),
-          
-
 
           Column(
             children: [
@@ -276,6 +222,8 @@ class _SignInState extends State<LoginScreen> with Helpers {
 
           Positioned(
             bottom: 0,
+            right: 0,
+            left: 0,
             child:CustomButton(
               text: 'Login', 
             function: ()=>performLogin(),

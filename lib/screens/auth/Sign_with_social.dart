@@ -4,6 +4,8 @@ import 'package:softagi_api/screens/auth/ManOrWoman.dart';
 import 'package:softagi_api/widgets/custom_button.dart';
 import 'package:softagi_api/widgets/custom_text.dart';
 
+import 'login_screen.dart';
+
 
 class SignWithSocial extends StatelessWidget {
   const SignWithSocial({ Key? key }) : super(key: key);
@@ -18,7 +20,7 @@ class SignWithSocial extends StatelessWidget {
         Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 35,left: 10),
+              padding: const EdgeInsets.only(top: 45,left: 10),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Container(
@@ -44,7 +46,7 @@ class SignWithSocial extends StatelessWidget {
               children: [
                 
                 Text('Let’s Get Started',style: TextStyle(
-                  color: Colors.black,
+
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),)
@@ -65,19 +67,19 @@ class SignWithSocial extends StatelessWidget {
             children: [
                      
            Padding(
-             padding: const EdgeInsets.all(8.0),
+             padding: const EdgeInsets.only(bottom: 12),
              child: InkWell(
                onTap: (){},
                child: SvgPicture.asset('images/facebookButton.svg')),
            ),
       Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(bottom: 12),
         child:   InkWell(
           onTap: (){},
           child: SvgPicture.asset('images/TwitterButton -l.svg')),
       ),
       Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(bottom: 12),
         child:   InkWell(
           onTap:(){},
           child: SvgPicture.asset('images/googleButton -l.svg')),
@@ -115,13 +117,17 @@ class SignWithSocial extends StatelessWidget {
                      ),
                     TextButton(
                       onPressed: (){
-                      Navigator.pushReplacementNamed(context, '/login_screen');
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return LoginScreen();
+                        },
+                      ));
                     }, child: Text(
-                       ' Signin',
+                       ' Sign in',
                         style: TextStyle(
                                   height: 1.5,
                                   fontSize: 18,
-                                  color: Colors.black,
+
                                   fontWeight: FontWeight.bold,
                                 ),
                      ), ),                                    
@@ -139,6 +145,8 @@ class SignWithSocial extends StatelessWidget {
 
         Positioned(
           bottom: 0,
+          left: 0,
+          right: 0,
           child: CustomButton(
             text: 'Create Account',
              function:(){

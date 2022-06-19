@@ -51,7 +51,7 @@ class _FaqsScreenState extends State<FaqsScreen> {
       body: Column(
         children: [
           SizedBox(
-            height: 700,
+            height: 500,
             child: FutureBuilder<List<Faqs>>(
               future: _future,
               builder: (context, snapshot) {
