@@ -4,6 +4,12 @@
 ### Features :
 Sign-In, Sign-Up and LogOut using Email & Password
 
+profile screen  / Update Profile
+
+Settings Screen 
+
+Using Dark Theme & Light Theme
+
 Add/Remove Products to/from Cart.
 
 Change quantity of products in the cart.
