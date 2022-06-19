@@ -1,16 +1,19 @@
 # softagi_api
 
-A new Flutter project.
 
-## Getting Started
+### Features :
+Sign-In, Sign-Up and LogOut using Email & Password
 
-This project is a starting point for a Flutter application.
+Add/Remove Products to/from Cart.
 
-A few resources to get you started if this is your first Flutter project:
+Change quantity of products in the cart.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Check out your Cart and Make an Order.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Check your recent orders at Order History.
+
+Using Responsive UI.
+
+Using Api & shared preference.
+
+Using GetX as state management.
